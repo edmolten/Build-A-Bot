@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using UnityEngine.UI;
+using UnityEngine.Networking;
 
 [System.Serializable]
 public class AxleInfo {
@@ -15,10 +18,27 @@ public class MovimientoBot : MonoBehaviour {
 	public List<AxleInfo> axleInfos; 
 	public float maxMotorTorque;
 	public float maxSteeringAngle;
+	public String ejeMotor;
+	public String ejeRotacion;
+	public KeyCode respawnKey;
+
+	private Vector3 initialPosition;
+	private Quaternion initialRotation;
 
 	public void Start(){
 		//para evitar volcaminetos weones, se baja el centro de gravedad
 		GetComponent<Rigidbody>().centerOfMass = new Vector3(0,-0.13f,0);
+		Vector3 position = GetComponent<Transform> ().position;
+		Quaternion rotation = GetComponent<Transform> ().localRotation;
+		initialPosition = new Vector3(position.x,position.y,position.z);
+		initialRotation = new Quaternion (rotation.x, rotation.y, rotation.z, rotation.w);
+	}
+
+	public void Update(){
+		if (Input.GetKeyDown (respawnKey)) {
+			//transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z);
+			transform.localRotation = new Quaternion(initialRotation.x,initialRotation.y,initialRotation.z,initialRotation.w);
+		}
 	}
 
 	// finds the corresponding visual wheel
@@ -41,8 +61,9 @@ public class MovimientoBot : MonoBehaviour {
 
 	public void FixedUpdate()
 	{
-		float motor = maxMotorTorque * Input.GetAxis("Vertical");
-		float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+		
+		float motor = maxMotorTorque * Input.GetAxis(ejeMotor);
+		float steering = maxSteeringAngle * Input.GetAxis(ejeRotacion);
 
 		foreach (AxleInfo axleInfo in axleInfos) {
 			if (axleInfo.steering) {
