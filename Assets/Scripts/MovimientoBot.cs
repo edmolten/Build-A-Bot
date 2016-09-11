@@ -11,9 +11,15 @@ public class AxleInfo {
 }
 
 public class MovimientoBot : MonoBehaviour {
+	
 	public List<AxleInfo> axleInfos; 
 	public float maxMotorTorque;
 	public float maxSteeringAngle;
+
+	public void Start(){
+		//para evitar volcaminetos weones, se baja el centro de gravedad
+		GetComponent<Rigidbody>().centerOfMass = new Vector3(0,-0.13f,0);
+	}
 
 	// finds the corresponding visual wheel
 	// correctly applies the transform
