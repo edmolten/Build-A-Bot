@@ -21,13 +21,15 @@ public class MovimientoBot : MonoBehaviour {
 	public String ejeMotor;
 	public String ejeRotacion;
 	public KeyCode respawnKey;
+	public float yCenter;
 
 	private Vector3 initialPosition;
 	private Quaternion initialRotation;
 
 	public void Start(){
 		//para evitar volcaminetos weones, se baja el centro de gravedad
-		GetComponent<Rigidbody>().centerOfMass = new Vector3(0,-0.13f,0);
+		GetComponent<Rigidbody>().centerOfMass = new Vector3(0,yCenter,0);
+
 		Vector3 position = GetComponent<Transform> ().position;
 		Quaternion rotation = GetComponent<Transform> ().localRotation;
 		initialPosition = new Vector3(position.x,position.y,position.z);
@@ -55,8 +57,11 @@ public class MovimientoBot : MonoBehaviour {
 		Quaternion rotation;
 		collider.GetWorldPose(out position, out rotation);
 
+
 		visualWheel.transform.position = position;
 		visualWheel.transform.rotation = rotation;
+
+		visualWheel.transform.Rotate (0,0,90); //sven
 	}
 
 	public void FixedUpdate()
