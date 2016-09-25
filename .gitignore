@@ -81,3 +81,6 @@ $RECYCLE.BIN/
 *.lnk
 ProjectSettings/ProjectSettings.asset
 ProjectSettings/ProjectVersion.txt
+ProjectSettings/GraphicsSettings.asset
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/GraphicsSettings.asset
