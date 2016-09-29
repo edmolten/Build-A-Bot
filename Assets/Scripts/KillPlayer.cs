@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor.VersionControl;
 
 public class KillPlayer : MonoBehaviour {
 
@@ -10,6 +11,8 @@ public class KillPlayer : MonoBehaviour {
 	}
 
 	void respawn(GameObject obj){
+		AudioSource audio = obj.GetComponent<AudioSource> ();
+		audio.Play ();
 		Rigidbody rb = obj.GetComponent<Rigidbody>() ;
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
