@@ -8,6 +8,7 @@ public class KillPlayer : MonoBehaviour {
 		if(col.gameObject.name == "Bot 1" || col.gameObject.name == "Bot 2")
 		{
 			Destroy(col.gameObject);
+
 		}
 	}
 }
