@@ -22,22 +22,12 @@ public class MovimientoBot : MonoBehaviour {
 	public String ejeRotacion;
 	public KeyCode respawnKey;
 	public float yCenter;
-
-	private Quaternion initialRotation;
+	public Vector3 initialPosition;
 
 	public void Start(){
 		//para evitar volcaminetos weones, se baja el centro de gravedad
 		GetComponent<Rigidbody>().centerOfMass = new Vector3(0,yCenter,0);
-
-		Quaternion rotation = GetComponent<Transform> ().localRotation;
-		initialRotation = new Quaternion (rotation.x, rotation.y, rotation.z, rotation.w);
-	}
-
-	public void Update(){
-		if (Input.GetKeyDown (respawnKey)) {
-			//transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z);
-			transform.localRotation = new Quaternion(initialRotation.x,initialRotation.y,initialRotation.z,initialRotation.w);
-		}
+		initialPosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
 	}
 
 	// finds the corresponding visual wheel
