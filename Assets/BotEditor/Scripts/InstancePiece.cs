@@ -4,32 +4,31 @@ using System.Collections.Generic;
 
 public class InstancePiece : MonoBehaviour {
 	public AssemblerPiece assembler = null;
+	public GameObject[] piecesPrefab = new GameObject[2];
 
 	private GameObject piece = null;
-    private bool partSelected = false;
-    private Dictionary<string, PrimitiveType> typeObjects; 
 
 	// Use this for initialization
 	void Start () {
-        typeObjects = new Dictionary<string, PrimitiveType>();
-        typeObjects["cube"] = PrimitiveType.Cube;
-	    typeObjects["cylinder"] = PrimitiveType.Cylinder;
+       
 	}
 
-    public void selectPart (string type) {
+	public void selectPart (int index) {
+		Debug.Log ("QWeqweqwewqe");
 		if (assembler.piece != null) {
 			return;
 		}
 
-		if (assembler.currentType != null) {
-			if (type == assembler.currentType) {
+		if (assembler.currentType != -1) {
+			if (index == assembler.currentType) {
 				return;
 			}
 		}
 
-		piece = GameObject.CreatePrimitive(typeObjects[type]);
-		piece.AddComponent<Rigidbody>();
+		assembler.currentType = index;
+		piece = Instantiate(piecesPrefab[index]);
 		piece.GetComponent<Rigidbody> ().isKinematic = true;
+		piece.GetComponent<Rigidbody> ().useGravity = false;
 		assembler.setPiece(piece);
     }
 }

@@ -5,7 +5,7 @@ public class AssemblerPiece : MonoBehaviour {
 	public GameObject car = null;
     public GameObject pointToJoin = null;
 	[HideInInspector] 
-	public string currentType = null;
+	public int currentType = -1;
 	[HideInInspector]
 	public GameObject piece = null;
 
@@ -20,7 +20,7 @@ public class AssemblerPiece : MonoBehaviour {
 		GameObject pieceToAdd;
 
 		if (piece != null && pointToJoin != null) {
-			pieceToAdd = piece;
+			pieceToAdd = piece; 
 			fjPoint = pointToJoin.GetComponent<FixedJoint> ();
 
 			unSelectPart (false);
@@ -39,8 +39,7 @@ public class AssemblerPiece : MonoBehaviour {
 			pieceToAdd.transform.localRotation = Quaternion.Euler(90, 0, 0); //Aplicar rotación locals
 		}
 	}
-
-
+		
 	//Set the reference to the piece to joint
 	public void setPiece(GameObject newPiece) {
 		piece = newPiece;
@@ -56,7 +55,7 @@ public class AssemblerPiece : MonoBehaviour {
 			Destroy(piece);
 		}
 		piece = null;
-		currentType = null;
+		currentType = -1;
 	}
 
 	// Update is called once per frame
