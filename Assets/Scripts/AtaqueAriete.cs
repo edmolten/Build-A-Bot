@@ -4,23 +4,22 @@ using System.Collections;
 public class AtaqueAriete : MonoBehaviour {
 
 	public float fuerza;
-	public float pushing;
-	public bool isPushing;
+	public string pushButton;
+	private float pushing;
+	private bool isPushing;
 	private Rigidbody collRigidBody;
-	private GameObject terrain;
 	private Animation animation;
 
 	// Use this for initialization
 	void Start () {
 		isPushing = false;
 		pushing = 1F / 12F;
-		terrain = GameObject.Find ("Terrain");
 		animation = this.gameObject.GetComponent<Animation> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.L)) {
+		if (Input.GetKeyDown (pushButton)) {
 			animation.Play("ramAttack");
 			isPushing = true;
 		}
@@ -37,7 +36,7 @@ public class AtaqueAriete : MonoBehaviour {
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
 		//Debug.Log (collRigidBody.GetType());
 		//Debug.Log (coll.gameObject.name);
-		if (isPushing && pushing >= 0 && coll.gameObject.name != terrain.name) {
+		if (isPushing && pushing >= 0 && coll.gameObject.name != this.gameObject.name && coll.gameObject.tag == "Player") {
 			collRigidBody.AddForce (-this.gameObject.transform.up * fuerza, ForceMode.Impulse);
 		}
 	}

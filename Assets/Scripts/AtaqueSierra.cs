@@ -6,11 +6,6 @@ public class AtaqueSierra : MonoBehaviour {
 	public int frecuenciaRotacion;
 	public int fuerza;
 	private Rigidbody collRigidBody;
-	private GameObject terrain;
-
-	void Start () {
-		terrain = GameObject.Find ("Terrain");
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -19,7 +14,7 @@ public class AtaqueSierra : MonoBehaviour {
 
 	void OnCollisionEnter (Collision coll){
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
-		if (coll.gameObject.name != terrain.name) {
+		if (coll.gameObject.name != this.gameObject.name && coll.gameObject.tag == "Player") {
 			collRigidBody.AddForce (-this.gameObject.transform.forward * fuerza, ForceMode.Impulse);
 		}
 	}
