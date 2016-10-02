@@ -35,6 +35,8 @@ public class KillPlayer : MonoBehaviour {
 				foreach (Transform toolChild in go.transform) {
 					Rigidbody rig = toolChild.gameObject.GetComponent<Rigidbody> ();
 					if (rig != null) {
+						rig.velocity = Vector3.zero;
+						rig.angularVelocity = Vector3.zero;
 					}
 				}
 			}
