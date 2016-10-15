@@ -13,12 +13,9 @@ public class AtaqueBola : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision coll){
-		//Debug.Log ("Hola");
 		velocidadImpacto = thisRigidBody.velocity;
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
-		//Debug.Log (this.gameObject.name);
-		//Debug.Log (transform.parent.parent.name);
-		if(coll.gameObject.tag == "Player" && coll.gameObject.name != transform.parent.parent.name){
+		if(coll.gameObject.tag == "Player" || coll.gameObject.tag == "Tool"){
 			collRigidBody.AddForce (velocidadImpacto * fuerza, ForceMode.Impulse);
 		}
 	}
