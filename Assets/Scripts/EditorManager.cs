@@ -12,6 +12,7 @@ public class EditorManager : MonoBehaviour {
 	private Vector3 initPosCar; //save the initial position spawn.
 	private GameObject bot; //reference to the bot owner.
 	private Rigidbody rbBot; // reference to the rBody of the bot.
+	private int currentWeapon = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,11 @@ public class EditorManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void attachWeapon(){
+		//currentWeapon = (currentWeapon + 1) % ;
+		//Debug.Log ("Attach weapon: " + weapons[currentWeapon]);
 	}
 
 	public void sendToArena(Button button) {
