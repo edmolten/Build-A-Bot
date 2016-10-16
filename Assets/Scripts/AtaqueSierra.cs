@@ -14,7 +14,6 @@ public class AtaqueSierra : MonoBehaviour {
 
 	void OnCollisionEnter (Collision coll){
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
-		Debug.Log (coll.transform.forward);
 		if (coll.gameObject.name != this.gameObject.name && coll.gameObject.tag == "Player") {
 			collRigidBody.AddForce (this.gameObject.transform.right * fuerza, ForceMode.Impulse);
 		}

@@ -34,8 +34,7 @@ public class AtaqueAriete : MonoBehaviour {
 
 	void OnCollisionEnter(Collision coll){
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
-		//Debug.Log (collRigidBody.GetType());
-		//Debug.Log (coll.gameObject.name);
+
 		if (isPushing && pushing >= 0 && coll.gameObject.name != this.gameObject.name && coll.gameObject.tag == "Player") {
 			collRigidBody.AddForce (-this.gameObject.transform.up * fuerza, ForceMode.Impulse);
 		}

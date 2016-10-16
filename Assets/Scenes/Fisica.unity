@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 43481701}
   - 146: {fileID: 43481702}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Rueda TI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 58107551}
   - 146: {fileID: 58107552}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Rueda FI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 87603115}
-  - 114: {fileID: 87603114}
   - 82: {fileID: 87603113}
   m_Layer: 0
   m_Name: InitObject
@@ -443,7 +442,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b5d7f707e2686c04997403ec4cbc108a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -506,17 +505,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &87603114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 87603112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa9bcae6a5ff65e4687cda5625714a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &87603115
 Transform:
   m_ObjectHideFlags: 0
@@ -730,7 +718,7 @@ GameObject:
   - 4: {fileID: 198540587}
   - 33: {fileID: 198540589}
   - 23: {fileID: 198540588}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,7 +2376,7 @@ GameObject:
   - 4: {fileID: 605353138}
   - 33: {fileID: 605353140}
   - 23: {fileID: 605353139}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3013,11 +3001,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: f5475f67ff02bf24ab41bf0cf9c77834, type: 2}
     - target: {fileID: 1000013418975726, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1000013193409502, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
@@ -3176,7 +3164,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 861427932}
   - 146: {fileID: 861427933}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Rueda TI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4007,89 +3995,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 59000010454166210, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: -1.0000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 59000010872550320, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.9999984
-      objectReference: {fileID: 0}
-    - target: {fileID: 59000010921565772, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.99999875
-      objectReference: {fileID: 0}
-    - target: {fileID: 59000011872634758, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.99999636
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012887432242, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_TagString
-      value: Tool
-      objectReference: {fileID: 0}
-    - target: {fileID: 59000010872550320, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.000009536743
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012549780196, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: fuerza
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012170407728, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011287510406, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010293442366, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010095529770, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010154809948, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 59000011872634758, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.000016987324
-      objectReference: {fileID: 0}
-    - target: {fileID: 59000010921565772, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: -0.000005066395
-      objectReference: {fileID: 0}
-    - target: {fileID: 59000010454166210, guid: ee44bbbee9eeb9a469af015480fcad92,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.000006854534
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010606024332, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012887432242, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1006860914
@@ -4102,7 +4008,7 @@ GameObject:
   - 4: {fileID: 1006860915}
   - 33: {fileID: 1006860917}
   - 23: {fileID: 1006860916}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4356,11 +4262,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: f5475f67ff02bf24ab41bf0cf9c77834, type: 2}
     - target: {fileID: 1000013418975726, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1000013193409502, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
@@ -4720,7 +4626,7 @@ GameObject:
   - 4: {fileID: 1115010723}
   - 33: {fileID: 1115010725}
   - 23: {fileID: 1115010724}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6156,7 +6062,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1362586189}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Ruedas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6297,7 +6203,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1391979535}
   - 146: {fileID: 1391979536}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Rueda FI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6576,7 +6482,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1520217495}
   - 146: {fileID: 1520217496}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Rueda TD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6692,6 +6598,41 @@ Prefab:
     - target: {fileID: 1000012887432242, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 59000011872634758, guid: ee44bbbee9eeb9a469af015480fcad92,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.99999875
+      objectReference: {fileID: 0}
+    - target: {fileID: 59000011872634758, guid: ee44bbbee9eeb9a469af015480fcad92,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 59000010921565772, guid: ee44bbbee9eeb9a469af015480fcad92,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 59000010872550320, guid: ee44bbbee9eeb9a469af015480fcad92,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.99999756
+      objectReference: {fileID: 0}
+    - target: {fileID: 59000010872550320, guid: ee44bbbee9eeb9a469af015480fcad92,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 59000010454166210, guid: ee44bbbee9eeb9a469af015480fcad92,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 59000010454166210, guid: ee44bbbee9eeb9a469af015480fcad92,
+        type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
@@ -7043,7 +6984,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1691906992}
   - 146: {fileID: 1691906991}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Rueda TD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7376,7 +7317,7 @@ GameObject:
   - 4: {fileID: 1732469923}
   - 33: {fileID: 1732469925}
   - 23: {fileID: 1732469924}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7790,7 +7731,7 @@ GameObject:
   - 4: {fileID: 1840778291}
   - 33: {fileID: 1840778293}
   - 23: {fileID: 1840778292}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8508,7 +8449,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1962986697}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Ruedas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
