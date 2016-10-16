@@ -3,16 +3,16 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class EditorManager : MonoBehaviour {
-	public GameObject camera;
+	public GameObject cameraBot;
 	public float distanceCamera;
-	public GameObject canvas; //reference to the canvas associated to the camera of the bot.
+	public Canvas canvas; //reference to the canvas associated to the camera of the bot.
 	public Vector3 positionEditor; //position to set at the start of the game.
 	public GameObject[] weapons = new GameObject[2];
 
 	private Vector3 initPosCar; //save the initial position spawn.
 	private GameObject bot; //reference to the bot owner.
 	private Rigidbody rbBot; // reference to the rBody of the bot.
-	private int currentWeapon = 0;
+	private int currentWeapon;
 
 	// Use this for initialization
 	void Start () {
@@ -26,8 +26,8 @@ public class EditorManager : MonoBehaviour {
 		rbBot.useGravity = false;
 		rbBot.isKinematic = true;
 
-		camera.GetComponent<SmoothFollow> ().enabled = false;
-		camera.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
+		cameraBot.GetComponent<SmoothFollow> ().enabled = false;
+		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
 	}
 	
 	// Update is called once per frame
@@ -40,17 +40,21 @@ public class EditorManager : MonoBehaviour {
 		//Debug.Log ("Attach weapon: " + weapons[currentWeapon]);
 	}
 
-	public void sendToArena(Button button) {
+	public void sendToArena() {
 		//set back the normal properties.
 		bot.transform.position = initPosCar;
 		rbBot.useGravity = true;
 		rbBot.isKinematic = false;
 
-		button.gameObject.SetActive(false);
-
 		//Enable/disable scripts
-		camera.GetComponent<SmoothFollow> ().enabled = true;
+		cameraBot.GetComponent<SmoothFollow> ().enabled = true;
 		bot.GetComponent<EditorManager> ().enabled = false;
 		bot.GetComponent<FollowCamera> ().enabled = false;
+
+		//Disable UI components
+		Transform btnNext = canvas.gameObject.transform.Find("ButtonPlay");
+		Transform backGround = canvas.gameObject.transform.Find("BgEditor");
+		btnNext.gameObject.SetActive (false);
+		backGround.gameObject.SetActive (false);
 	}
 }
