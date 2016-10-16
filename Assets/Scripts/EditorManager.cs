@@ -8,16 +8,22 @@ public class EditorManager : MonoBehaviour {
 	public Canvas canvas; //reference to the canvas associated to the camera of the bot.
 	public Vector3 positionEditor; //position to set at the start of the game.
 	public GameObject[] weapons = new GameObject[2];
+	public int layerWeapon = 12;
 
 	private Vector3 initPosCar; //save the initial position spawn.
 	private GameObject bot; //reference to the bot owner.
 	private Rigidbody rbBot; // reference to the rBody of the bot.
-	private int currentWeapon;
+	private FixedJoint joinPoint;
+	private int currentWeapon = 0;
+	private GameObject refWeapon = null;
+	private GameObject pointJoin;
 
 	// Use this for initialization
 	void Start () {
 		bot = this.gameObject;
 		rbBot = bot.GetComponent<Rigidbody> ();
+		joinPoint = bot.GetComponent<FixedJoint> ();
+		pointJoin = bot.transform.Find ("PositionWeapon").gameObject;
 	
 		initPosCar = bot.transform.position;
 		bot.transform.position = positionEditor;
@@ -36,8 +42,19 @@ public class EditorManager : MonoBehaviour {
 	}
 
 	public void attachWeapon(){
-		//currentWeapon = (currentWeapon + 1) % ;
-		//Debug.Log ("Attach weapon: " + weapons[currentWeapon]);
+		currentWeapon = (currentWeapon + 1) % weapons.Length;
+
+		GameObject weapon = Instantiate (weapons [currentWeapon]);
+
+		if (refWeapon != null) {
+			Destroy (refWeapon);
+		}
+
+		refWeapon = weapon.gameObject;
+		weapon.transform.parent = pointJoin.transform;
+		weapon.layer = layerWeapon; 
+		weapon.transform.position = pointJoin.transform.position;
+		joinPoint.connectedBody = weapon.GetComponent<Rigidbody>();
 	}
 
 	public void sendToArena() {
@@ -50,11 +67,17 @@ public class EditorManager : MonoBehaviour {
 		cameraBot.GetComponent<SmoothFollow> ().enabled = true;
 		bot.GetComponent<EditorManager> ().enabled = false;
 		bot.GetComponent<FollowCamera> ().enabled = false;
+		bot.GetComponent<MovimientoBot> ().initialPosition = initPosCar;
 
 		//Disable UI components
 		Transform btnNext = canvas.gameObject.transform.Find("ButtonPlay");
 		Transform backGround = canvas.gameObject.transform.Find("BgEditor");
-		btnNext.gameObject.SetActive (false);
-		backGround.gameObject.SetActive (false);
+		Transform btnNextWeapon = canvas.gameObject.transform.Find("ButtonNextWeapon");
+
+		Destroy (btnNext.gameObject);
+		Destroy (backGround.gameObject);
+		Destroy (btnNextWeapon.gameObject);
+		Destroy (this);
+
 	}
 }
