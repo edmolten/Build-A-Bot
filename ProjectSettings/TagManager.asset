@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tool
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Player2Body
   - Player1Weapon
   - Player2Weapon
-  - 
+  - Wheels
   - 
   - 
   - 

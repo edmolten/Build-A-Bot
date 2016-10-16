@@ -8,19 +8,19 @@ public class AtaqueAriete : MonoBehaviour {
 	private float pushing;
 	private bool isPushing;
 	private Rigidbody collRigidBody;
-	private Animation animation;
+	private Animation pushAnimation;
 
 	// Use this for initialization
 	void Start () {
 		isPushing = false;
 		pushing = 1F / 12F;
-		animation = this.gameObject.GetComponent<Animation> ();
+		pushAnimation = this.gameObject.GetComponent<Animation> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (pushButton)) {
-			animation.Play("ramAttack");
+			pushAnimation.Play("ramAttack");
 			isPushing = true;
 		}
 		if (isPushing) {
@@ -34,8 +34,9 @@ public class AtaqueAriete : MonoBehaviour {
 
 	void OnCollisionEnter(Collision coll){
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
-
-		if (isPushing && pushing >= 0 && coll.gameObject.name != this.gameObject.name && coll.gameObject.tag == "Player") {
+		string thisTag = this.tag;
+		string otherTag = coll.gameObject.tag;
+		if(isPushing && pushing >= 0 && (thisTag == "Player1" && otherTag == "Player2") || (thisTag == "Player2" && otherTag == "Player1")){
 			collRigidBody.AddForce (-this.gameObject.transform.up * fuerza, ForceMode.Impulse);
 		}
 	}

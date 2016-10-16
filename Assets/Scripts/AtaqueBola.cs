@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AtaqueBola : MonoBehaviour {
 
-	public float fuerza;
+	public float forceAmplify = 2;
 	private Vector3 velocidadImpacto;
 	private Rigidbody thisRigidBody;
 	private Rigidbody collRigidBody;
@@ -20,7 +20,6 @@ public class AtaqueBola : MonoBehaviour {
 	void Start () {
 		thisRigidBody = this.gameObject.GetComponent<Rigidbody> ();
 		stabilizer = GetComponentInParent<Stabilizer> ();
-
 	}
 
 	void Update(){
@@ -31,13 +30,17 @@ public class AtaqueBola : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision coll){
-		velocidadImpacto = thisRigidBody.velocity;
-		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
-		if(coll.gameObject.tag == "Player"){
-			AudioSource audio = this.GetComponent<AudioSource> ();
+		string thisTag = this.tag;
+		string otherTag = coll.gameObject.tag;
+		if((thisTag == "Player1" && otherTag == "Player2") || (thisTag == "Player2" && otherTag == "Player1")){
+			Vector3 dir = (coll.contacts[0].point - transform.position).normalized;
+			float velMag = thisRigidBody.velocity.magnitude;
+			collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
+			AudioSource audio = GetComponent<AudioSource> ();
 			setHitVolumen (audio);
 			audio.Play ();
-			collRigidBody.AddForce (velocidadImpacto * fuerza, ForceMode.Impulse);
+			collRigidBody.AddForce (dir * velMag * forceAmplify, ForceMode.VelocityChange);
+			thisRigidBody.AddForce (-dir * velMag, ForceMode.VelocityChange);
 		}
 	}
 	void setHitVolumen(AudioSource audio){
