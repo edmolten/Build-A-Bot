@@ -118,5 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b880dcf87cd563749b5029c8426af08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frecuenciaRotacion: 3600
-  fuerza: 5000
+  frecuenciaRotacion: 400
+  fuerza: 2

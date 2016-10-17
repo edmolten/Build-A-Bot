@@ -29,6 +29,8 @@ public class InstancePiece : MonoBehaviour {
 		piece = Instantiate(piecesPrefab[index]);
 		piece.GetComponent<Rigidbody> ().isKinematic = true;
 		piece.GetComponent<Rigidbody> ().useGravity = false;
+		piece.layer = 12; //TODO Cuando hayan dos editores tiene que cambiar dependiendo del player
+		piece.tag = "Player1"; //mismo que arriba
 		assembler.setPiece(piece);
     }
 }

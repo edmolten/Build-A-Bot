@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012829926564}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Ruedas
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +36,7 @@ GameObject:
   - 4: {fileID: 4000014127933338}
   - 33: {fileID: 33000013188651136}
   - 23: {fileID: 23000013569621282}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012902960026}
   - 146: {fileID: 146000011160722264}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Rueda FD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,9 +67,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012282018692}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: JointPoints
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ GameObject:
   - 4: {fileID: 4000010129596794}
   - 33: {fileID: 33000010881550424}
   - 23: {fileID: 23000011036237890}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - 54: {fileID: 54000012766304996}
   - 138: {fileID: 138000013403269352}
   - 114: {fileID: 114000010529122034}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: jointPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - 4: {fileID: 4000010559849830}
   - 33: {fileID: 33000011672915180}
   - 23: {fileID: 23000013461984230}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014085733934}
   - 146: {fileID: 146000011725099534}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Rueda FI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011958173086}
   - 146: {fileID: 146000010134086102}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Rueda TD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,9 +172,9 @@ GameObject:
   - 33: {fileID: 33000012247951544}
   - 65: {fileID: 65000012502469810}
   - 23: {fileID: 23000011039292414}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cuerpo
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010051822632}
   - 146: {fileID: 146000010739265598}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Rueda TI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - 114: {fileID: 114000011392034110}
   m_Layer: 0
   m_Name: BotModel
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,7 +226,7 @@ GameObject:
   - 4: {fileID: 4000012307630062}
   - 33: {fileID: 33000012562869572}
   - 23: {fileID: 23000013066416322}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,6 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveFactor: 150
+  controlType: 0
 --- !u!114 &114000011584530176
 MonoBehaviour:
   m_ObjectHideFlags: 1

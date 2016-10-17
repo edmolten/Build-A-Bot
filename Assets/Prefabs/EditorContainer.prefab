@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010023176280}
   m_Layer: 0
   m_Name: EditorContainer
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ GameObject:
   - 114: {fileID: 114000011750912780}
   m_Layer: 0
   m_Name: BotModel
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +242,7 @@ GameObject:
   - 114: {fileID: 114000011673390102}
   m_Layer: 0
   m_Name: GeneratorParts
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ GameObject:
   - 114: {fileID: 114000013056817024}
   m_Layer: 0
   m_Name: Assembler
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -893,6 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveFactor: 150
+  controlType: 0
 --- !u!114 &114000012248750566
 MonoBehaviour:
   m_ObjectHideFlags: 1

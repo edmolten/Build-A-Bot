@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6955996, g: 0.7103603, b: 0.6727505, a: 1}
+  m_IndirectSpecularColor: {r: 0.6955996, g: 0.7103602, b: 0.67275053, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -207,9 +207,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 43481701}
   - 146: {fileID: 43481702}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Rueda TI
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 58107551}
   - 146: {fileID: 58107552}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Rueda FI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -804,7 +804,7 @@ GameObject:
   - 4: {fileID: 198540587}
   - 33: {fileID: 198540589}
   - 23: {fileID: 198540588}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,7 +1068,7 @@ GameObject:
   - 23: {fileID: 299938468}
   m_Layer: 11
   m_Name: Cuerpo
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2599,7 +2599,7 @@ GameObject:
   - 4: {fileID: 605353138}
   - 33: {fileID: 605353140}
   - 23: {fileID: 605353139}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3224,11 +3224,15 @@ Prefab:
       objectReference: {fileID: 2100000, guid: f5475f67ff02bf24ab41bf0cf9c77834, type: 2}
     - target: {fileID: 1000013418975726, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1000013193409502, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 10
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013193409502, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
@@ -3280,6 +3284,10 @@ Prefab:
     - target: {fileID: 1000011332616438, guid: 69876f420d042fb4ba6199066d65d77e, type: 2}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011332616438, guid: 69876f420d042fb4ba6199066d65d77e, type: 2}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69876f420d042fb4ba6199066d65d77e, type: 2}
@@ -3387,7 +3395,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 861427932}
   - 146: {fileID: 861427933}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Rueda TI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3673,7 +3681,7 @@ GameObject:
   - 153: {fileID: 901750060}
   m_Layer: 11
   m_Name: Bot 2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4362,7 +4370,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012887432242, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
       propertyPath: m_TagString
-      value: Tool
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 59000010872550320, guid: ee44bbbee9eeb9a469af015480fcad92,
         type: 2}
@@ -4435,9 +4443,9 @@ GameObject:
   - 4: {fileID: 1006860915}
   - 33: {fileID: 1006860917}
   - 23: {fileID: 1006860916}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Cylinder (2)
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4689,11 +4697,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: f5475f67ff02bf24ab41bf0cf9c77834, type: 2}
     - target: {fileID: 1000013418975726, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1000013193409502, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
       propertyPath: m_Layer
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fe5342918a7dec4ebe22924c27b3af6, type: 2}
@@ -5053,7 +5061,7 @@ GameObject:
   - 4: {fileID: 1115010723}
   - 33: {fileID: 1115010725}
   - 23: {fileID: 1115010724}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5697,7 +5705,7 @@ GameObject:
   - 114: {fileID: 1263908251}
   m_Layer: 10
   m_Name: Bot 1
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6467,9 +6475,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1362586189}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Ruedas
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6608,9 +6616,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1391979535}
   - 146: {fileID: 1391979536}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Rueda FI
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6955,9 +6963,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1520217495}
   - 146: {fileID: 1520217496}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Rueda TD
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7119,6 +7127,34 @@ Prefab:
         type: 2}
       propertyPath: m_ConnectedAnchor.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012170407728, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011287510406, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010293442366, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010095529770, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010154809948, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010606024332, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012887432242, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee44bbbee9eeb9a469af015480fcad92, type: 2}
@@ -7303,7 +7339,7 @@ GameObject:
   - 4: {fileID: 1579599306}
   m_Layer: 12
   m_Name: PositionWeapon
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7339,7 +7375,7 @@ GameObject:
   - 23: {fileID: 1628016761}
   m_Layer: 10
   m_Name: Cuerpo
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7498,7 +7534,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1691906992}
   - 146: {fileID: 1691906991}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Rueda TD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7905,7 +7941,7 @@ GameObject:
   - 4: {fileID: 1732469923}
   - 33: {fileID: 1732469925}
   - 23: {fileID: 1732469924}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8319,7 +8355,7 @@ GameObject:
   - 4: {fileID: 1840778291}
   - 33: {fileID: 1840778293}
   - 23: {fileID: 1840778292}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9037,9 +9073,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1962986697}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Ruedas
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
