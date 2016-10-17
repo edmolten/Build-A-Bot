@@ -3279,7 +3279,7 @@ Prefab:
     - target: {fileID: 114000014216447568, guid: 69876f420d042fb4ba6199066d65d77e,
         type: 2}
       propertyPath: fuerza
-      value: 5000
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000011332616438, guid: 69876f420d042fb4ba6199066d65d77e, type: 2}
       propertyPath: m_Layer
