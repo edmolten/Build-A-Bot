@@ -13,7 +13,8 @@ public class EditorManager : MonoBehaviour {
 	private Vector3 initPosCar; //save the initial position spawn.
 	private GameObject bot; //reference to the bot owner.
 	private Rigidbody rbBot; // reference to the rBody of the bot.
-	private FixedJoint joinPoint;
+	private FixedJoint joinPointFixed;
+	private ConfigurableJoint joinPointConfigurable;
 	private int currentWeapon = 0;
 	private GameObject refWeapon = null;
 	private GameObject pointJoin;
@@ -22,7 +23,8 @@ public class EditorManager : MonoBehaviour {
 	void Start () {
 		bot = this.gameObject;
 		rbBot = bot.GetComponent<Rigidbody> ();
-		joinPoint = bot.GetComponent<FixedJoint> ();
+		joinPointFixed = bot.GetComponent<FixedJoint> ();
+		joinPointConfigurable = bot.GetComponent<ConfigurableJoint> ();
 		pointJoin = bot.transform.Find ("PositionWeapon").gameObject;
 	
 		initPosCar = bot.transform.position;
@@ -40,7 +42,7 @@ public class EditorManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
 	public void attachWeapon(){
@@ -54,10 +56,23 @@ public class EditorManager : MonoBehaviour {
 
 		refWeapon = weapon.gameObject;
 		weapon.transform.parent = pointJoin.transform;
-		weapon.layer = layerWeapon; 
-		weapon.transform.position = pointJoin.transform.position;
+		weapon.layer = layerWeapon;
 		weapon.transform.localRotation = weapon.transform.rotation;
-		joinPoint.connectedBody = weapon.GetComponent<Rigidbody>();
+		if (weapon.name == "Sierra" || weapon.name == "Sierra(Clone)") {
+			weapon.transform.localPosition = new Vector3(0f, 0f, 0.3f);
+			//weapon.transform.position = transform.InverseTransformPoint(pointJoin.transform.position) + new Vector3(0f,0f,0.3f);
+			joinPointConfigurable.connectedBody = weapon.GetComponent<Rigidbody> ();
+			joinPointConfigurable.anchor = pointJoin.transform.localPosition + weapon.transform.localPosition;
+			joinPointConfigurable.xMotion = ConfigurableJointMotion.Locked;
+			joinPointConfigurable.yMotion = ConfigurableJointMotion.Locked;
+			joinPointConfigurable.zMotion = ConfigurableJointMotion.Locked;
+			joinPointConfigurable.angularXMotion = ConfigurableJointMotion.Locked;
+			joinPointConfigurable.angularYMotion = ConfigurableJointMotion.Free;
+			joinPointConfigurable.angularZMotion = ConfigurableJointMotion.Locked;
+		} else if (weapon.name == "Ariete(Clone)") {
+			weapon.transform.position = pointJoin.transform.position + new Vector3(0f,0f,-0.3f);
+			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
+		}
 	}
 
 	public void sendToArena() {
