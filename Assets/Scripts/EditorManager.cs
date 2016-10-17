@@ -34,6 +34,8 @@ public class EditorManager : MonoBehaviour {
 
 		cameraBot.GetComponent<SmoothFollow> ().enabled = false;
 		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
+
+		attachWeapon ();
 	}
 	
 	// Update is called once per frame
@@ -54,6 +56,7 @@ public class EditorManager : MonoBehaviour {
 		weapon.transform.parent = pointJoin.transform;
 		weapon.layer = layerWeapon; 
 		weapon.transform.position = pointJoin.transform.position;
+		weapon.transform.localRotation = weapon.transform.rotation;
 		joinPoint.connectedBody = weapon.GetComponent<Rigidbody>();
 	}
 
