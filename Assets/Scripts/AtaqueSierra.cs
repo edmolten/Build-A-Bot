@@ -16,7 +16,9 @@ public class AtaqueSierra : MonoBehaviour {
 		string thisTag = this.tag;
 		string otherTag = coll.gameObject.tag;
 		if((thisTag == "Player1" && otherTag == "Player2") || (thisTag == "Player2" && otherTag == "Player1")){
-			collRigidBody.AddForce (this.gameObject.transform.right * fuerza, ForceMode.VelocityChange);
+			collRigidBody.AddForce (this.gameObject.GetComponentInParent<Transform> ().right * fuerza, ForceMode.VelocityChange);
+			AudioSource audio = GetComponent<AudioSource> ();
+			audio.Play ();
 		}
 	}
 }
