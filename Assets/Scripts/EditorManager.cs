@@ -42,7 +42,7 @@ public class EditorManager : MonoBehaviour {
 		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
 
 		nextPointJoin ();
-		attachWeapon ();
+		//attachWeapon ();
 	}
 
 	//Select the next point to join
