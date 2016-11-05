@@ -17,15 +17,19 @@ public class EditorManager : MonoBehaviour {
 	private ConfigurableJoint joinPointConfigurable;
 	private int currentWeapon = 0;
 	private GameObject refWeapon = null;
-	private GameObject pointJoin;
+
+	//Selection of joint point
+	private int indexCurrentPoint = 0;
+	private GameObject pointsJoin;
+	private GameObject currentPointJoin = null;
 
 	// Use this for initialization
 	void Start () {
 		bot = this.gameObject;
 		rbBot = bot.GetComponent<Rigidbody> ();
-		joinPointFixed = bot.GetComponent<FixedJoint> ();
-		joinPointConfigurable = bot.GetComponent<ConfigurableJoint> ();
-		pointJoin = bot.transform.Find ("PositionWeapon").gameObject;
+		//joinPointFixed = bot.GetComponent<FixedJoint> ();
+		//joinPointConfigurable = bot.GetComponent<ConfigurableJoint> ();
+		pointsJoin = bot.transform.Find ("PositionWeapon").gameObject;
 	
 		initPosCar = bot.transform.position;
 		bot.transform.position = positionEditor;
@@ -37,7 +41,19 @@ public class EditorManager : MonoBehaviour {
 		cameraBot.GetComponent<SmoothFollow> ().enabled = false;
 		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
 
+		nextPointJoin ();
 		attachWeapon ();
+	}
+
+	//Select the next point to join
+	public void nextPointJoin() {
+		if (currentPointJoin != null) {
+			currentPointJoin.GetComponent<MeshRenderer> ().enabled = false;
+		}
+
+		indexCurrentPoint = (indexCurrentPoint + 1) % pointsJoin.transform.childCount;
+		currentPointJoin = pointsJoin.transform.GetChild (indexCurrentPoint).gameObject;
+		currentPointJoin.GetComponent<MeshRenderer> ().enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -50,19 +66,21 @@ public class EditorManager : MonoBehaviour {
 
 		GameObject weapon = Instantiate (weapons [currentWeapon]);
 
-		if (refWeapon != null) {
-			Destroy (refWeapon);
+		if (currentPointJoin.transform.childCount == 1) {
+			Destroy (currentPointJoin.transform.GetChild(0).gameObject);
 		}
-
-		refWeapon = weapon.gameObject;
-		weapon.transform.parent = pointJoin.transform;
+			
+		weapon.transform.parent = currentPointJoin.transform;
 		weapon.layer = layerWeapon;
 		weapon.transform.localRotation = weapon.transform.rotation;
+		joinPointConfigurable = currentPointJoin.GetComponent<ConfigurableJoint> ();
+		joinPointFixed = currentPointJoin.GetComponent<FixedJoint> ();
+
 		if (weapon.name == "Sierra" || weapon.name == "Sierra(Clone)") {
 			weapon.transform.localPosition = new Vector3(0f, 0f, 0.3f);
 			//weapon.transform.position = transform.InverseTransformPoint(pointJoin.transform.position) + new Vector3(0f,0f,0.3f);
 			joinPointConfigurable.connectedBody = weapon.GetComponent<Rigidbody> ();
-			joinPointConfigurable.anchor = pointJoin.transform.localPosition + weapon.transform.localPosition;
+			joinPointConfigurable.anchor = currentPointJoin.transform.localPosition + weapon.transform.localPosition;
 			joinPointConfigurable.xMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.yMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.zMotion = ConfigurableJointMotion.Locked;
@@ -70,7 +88,7 @@ public class EditorManager : MonoBehaviour {
 			joinPointConfigurable.angularYMotion = ConfigurableJointMotion.Free;
 			joinPointConfigurable.angularZMotion = ConfigurableJointMotion.Locked;
 		} else if (weapon.name == "Ariete(Clone)") {
-			weapon.transform.position = pointJoin.transform.position + new Vector3(0f,0f,-0.3f);
+			weapon.transform.position = currentPointJoin.transform.position + new Vector3(0f,0f,-0.3f);
 			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
 		}
 	}
@@ -88,13 +106,11 @@ public class EditorManager : MonoBehaviour {
 		bot.GetComponent<MovimientoBot> ().initialPosition = initPosCar;
 
 		//Disable UI components
-		Transform btnNext = canvas.gameObject.transform.Find("ButtonPlay");
 		Transform backGround = canvas.gameObject.transform.Find("BgEditor");
-		Transform btnNextWeapon = canvas.gameObject.transform.Find("ButtonNextWeapon");
+		Transform containerMenu = canvas.gameObject.transform.Find("Container");
 
-		Destroy (btnNext.gameObject);
+		Destroy (containerMenu.gameObject);
 		Destroy (backGround.gameObject);
-		Destroy (btnNextWeapon.gameObject);
 		Destroy (this);
 
 	}
