@@ -81,12 +81,14 @@ public class EditorManager : MonoBehaviour {
 			//weapon.transform.position = transform.InverseTransformPoint(pointJoin.transform.position) + new Vector3(0f,0f,0.3f);
 			joinPointConfigurable.connectedBody = weapon.GetComponent<Rigidbody> ();
 			joinPointConfigurable.anchor = currentPointJoin.transform.localPosition + weapon.transform.localPosition;
+
 			joinPointConfigurable.xMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.yMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.zMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.angularXMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.angularYMotion = ConfigurableJointMotion.Free;
 			joinPointConfigurable.angularZMotion = ConfigurableJointMotion.Locked;
+
 		} else if (weapon.name == "Ariete(Clone)") {
 			weapon.transform.position = currentPointJoin.transform.position + new Vector3(0f,0f,-0.3f);
 			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
