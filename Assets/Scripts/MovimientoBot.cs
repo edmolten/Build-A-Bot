@@ -20,9 +20,11 @@ public class MovimientoBot : MonoBehaviour {
 	public float maxSteeringAngle;
 	public String ejeMotor;
 	public String ejeRotacion;
+	public String jumpAxis;
 	public KeyCode respawnKey;
 	public float yCenter;
 	public Vector3 initialPosition;
+	public int jumpPower;
 
 	public void Start(){
 		//para evitar volcaminetos weones, se baja el centro de gravedad
@@ -48,7 +50,7 @@ public class MovimientoBot : MonoBehaviour {
 		visualWheel.transform.position = position;
 		visualWheel.transform.rotation = rotation;
 
-		visualWheel.transform.Rotate (0,0,90); //sven
+		visualWheel.transform.Rotate (0,0,90);
 	}
 
 	public void FixedUpdate()
@@ -69,5 +71,16 @@ public class MovimientoBot : MonoBehaviour {
 			ApplyLocalPositionToVisuals(axleInfo.leftWheel);
 			ApplyLocalPositionToVisuals(axleInfo.rightWheel);
 		}
+		if (Input.GetButtonDown (jumpAxis)) {
+			WheelCollider[]  wheels = GetComponentsInChildren<WheelCollider> ();
+			foreach (WheelCollider wc in wheels) {
+				WheelHit wh = new WheelHit();
+				if (wc.GetGroundHit(out wh)){
+					GetComponent<Rigidbody> ().AddForce (new Vector3 (0, jumpPower, 0),ForceMode.Impulse);
+					break;
+				}
+			}
+		}
+
 	}
 }
