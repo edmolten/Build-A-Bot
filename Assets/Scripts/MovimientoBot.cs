@@ -25,6 +25,10 @@ public class MovimientoBot : MonoBehaviour {
 	public float yCenter;
 	public Vector3 initialPosition;
 	public int jumpPower;
+	public String YButton;
+	public String BButton;
+	public String AButton;
+	public String XButton;
 
 	public void Start(){
 		//para evitar volcaminetos weones, se baja el centro de gravedad

@@ -3293,13 +3293,17 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 6000
   maxSteeringAngle: 15
-  ejeMotor: AD
-  ejeRotacion: WS
+  ejeMotor: WS2
+  ejeRotacion: AD2
   jumpAxis: Jump2
   respawnKey: 13
   yCenter: -0.4
   initialPosition: {x: 0, y: 0, z: 0}
-  jumpPower: 0
+  jumpPower: 4000
+  YButton: Y2
+  BButton: B2
+  AButton: A2
+  XButton: X2
 --- !u!54 &901750058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4556,6 +4560,10 @@ MonoBehaviour:
   yCenter: -0.4
   initialPosition: {x: 0, y: 0, z: 0}
   jumpPower: 4000
+  YButton: Y1
+  BButton: B1
+  AButton: A1
+  XButton: X1
 --- !u!54 &1263908244
 Rigidbody:
   m_ObjectHideFlags: 0
