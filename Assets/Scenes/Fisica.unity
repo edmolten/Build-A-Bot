@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6955996, g: 0.7103603, b: 0.6727505, a: 1}
+  m_IndirectSpecularColor: {r: 0.6955996, g: 0.7103602, b: 0.67275053, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3293,11 +3293,17 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 6000
   maxSteeringAngle: 15
-  ejeMotor: Vertical
-  ejeRotacion: Horizontal
+  ejeMotor: WS2
+  ejeRotacion: AD2
+  jumpAxis: Jump2
   respawnKey: 13
   yCenter: -0.4
   initialPosition: {x: 0, y: 0, z: 0}
+  jumpPower: 4000
+  YButton: Y2
+  BButton: B2
+  AButton: A2
+  XButton: X2
 --- !u!54 &901750058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4547,11 +4553,17 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 6000
   maxSteeringAngle: 15
-  ejeMotor: WS
-  ejeRotacion: AD
+  ejeMotor: WS1
+  ejeRotacion: AD1
+  jumpAxis: Jump1
   respawnKey: 304
   yCenter: -0.4
   initialPosition: {x: 0, y: 0, z: 0}
+  jumpPower: 4000
+  YButton: Y1
+  BButton: B1
+  AButton: A1
+  XButton: X1
 --- !u!54 &1263908244
 Rigidbody:
   m_ObjectHideFlags: 0
