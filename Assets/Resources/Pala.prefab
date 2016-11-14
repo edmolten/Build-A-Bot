@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010040379048}
   m_Layer: 13
   m_Name: Pala
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
