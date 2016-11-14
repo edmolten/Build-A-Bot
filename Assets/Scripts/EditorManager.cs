@@ -16,12 +16,14 @@ public class EditorManager : MonoBehaviour {
 	private FixedJoint joinPointFixed;
 	private ConfigurableJoint joinPointConfigurable;
 	private int currentWeapon = 0;
-	private GameObject refWeapon = null;
 
 	//Selection of joint point
 	private int indexCurrentPoint = 0;
 	private GameObject pointsJoin;
 	private GameObject currentPointJoin = null;
+
+	static bool player1Ready = false;
+	static bool player2Ready = false;
 
 	// Use this for initialization
 	void Start () {
@@ -42,7 +44,15 @@ public class EditorManager : MonoBehaviour {
 		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
 
 		nextPointJoin ();
+
 		//attachWeapon ();
+
+		//score y time desaparece
+		GameObject.Find ("Score 1").transform.localScale = Vector3.zero;
+		GameObject.Find ("Score 2").transform.localScale = Vector3.zero;
+		GameObject.Find ("Time 1").transform.localScale = Vector3.zero;
+		GameObject.Find ("Time 2").transform.localScale = Vector3.zero;
+
 	}
 
 	//Select the next point to join
@@ -54,11 +64,6 @@ public class EditorManager : MonoBehaviour {
 		indexCurrentPoint = (indexCurrentPoint + 1) % pointsJoin.transform.childCount;
 		currentPointJoin = pointsJoin.transform.GetChild (indexCurrentPoint).gameObject;
 		currentPointJoin.GetComponent<MeshRenderer> ().enabled = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void attachWeapon(){
@@ -96,6 +101,23 @@ public class EditorManager : MonoBehaviour {
 	}
 
 	public void sendToArena() {
+		//score aparece
+		if (this.bot.name == "Bot 1") {
+			player1Ready = true;
+		} else {
+			player2Ready = true;
+		}
+
+		if (player1Ready && player2Ready) {
+			//startTimer
+			Timer timer = GameObject.Find ("TimerObject").GetComponent<Timer> ();
+			GameObject.Find ("Score 2").transform.localScale = new Vector3 (1.5f, 1.5f, 1.5f);
+			GameObject.Find ("Time 2").transform.localScale =  new Vector3(1.5f,1.5f,1.5f);
+			GameObject.Find ("Score 1").transform.localScale =  new Vector3(1.5f,1.5f,1.5f);
+			GameObject.Find ("Time 1").transform.localScale =  new Vector3(1.5f,1.5f,1.5f);
+			timer.started = true;
+		}
+
 		//set back the normal properties.
 		bot.transform.position = initPosCar;
 		rbBot.useGravity = true;
