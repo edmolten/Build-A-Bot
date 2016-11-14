@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class EditorManager : MonoBehaviour {
 	public GameObject cameraBot;
 	public float distanceCamera;
 	public Canvas canvas; //reference to the canvas associated to the camera of the bot.
 	public Vector3 positionEditor; //position to set at the start of the game.
-	public GameObject[] weapons = new GameObject[2];
-	public int layerWeapon = 12;
+	public GameObject[] weapons;
+	public int layerWeapon1 = 12;
+	public int layerWeapon2 = 13;
 
 	private Vector3 initPosCar; //save the initial position spawn.
 	private GameObject bot; //reference to the bot owner.
@@ -55,6 +57,18 @@ public class EditorManager : MonoBehaviour {
 
 	}
 
+	void Update(){
+	/*	if (this.bot.name == "Bot 1") {
+			if (Input.GetButtonDown ("R1")) {
+				nextPointJoin ();
+			} else if (Input.GetButtonDown ("R2")) {
+				attachWeapon ();
+			} else if (Input.GetButtonDown ("start")) {
+				sendToArena ();
+			}
+		}*/
+
+	}
 	//Select the next point to join
 	public void nextPointJoin() {
 		if (currentPointJoin != null) {
@@ -76,13 +90,13 @@ public class EditorManager : MonoBehaviour {
 		}
 			
 		weapon.transform.parent = currentPointJoin.transform;
-		weapon.layer = layerWeapon;
+		weapon.layer = layerWeapon1;
 		weapon.transform.localRotation = weapon.transform.rotation;
 		joinPointConfigurable = currentPointJoin.GetComponent<ConfigurableJoint> ();
 		joinPointFixed = currentPointJoin.GetComponent<FixedJoint> ();
 
-		if (weapon.name == "Sierra" || weapon.name == "Sierra(Clone)") {
-			weapon.transform.localPosition = new Vector3(0f, 0f, 0.3f);
+		if (weapon.name.StartsWith ("Sierra")) {
+			weapon.transform.localPosition = new Vector3 (0f, 0f, 0.3f);
 			//weapon.transform.position = transform.InverseTransformPoint(pointJoin.transform.position) + new Vector3(0f,0f,0.3f);
 			joinPointConfigurable.connectedBody = weapon.GetComponent<Rigidbody> ();
 			joinPointConfigurable.anchor = currentPointJoin.transform.localPosition + weapon.transform.localPosition;
@@ -93,11 +107,71 @@ public class EditorManager : MonoBehaviour {
 			joinPointConfigurable.angularXMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.angularYMotion = ConfigurableJointMotion.Free;
 			joinPointConfigurable.angularZMotion = ConfigurableJointMotion.Locked;
-
-		} else if (weapon.name == "Ariete(Clone)") {
-			weapon.transform.position = currentPointJoin.transform.position + new Vector3(0f,0f,-0.3f);
+			String tag;
+			int layer;
+			if (this.bot.name == "Bot 1") {
+				tag = "Player1";
+				layer = layerWeapon1;
+			} else {
+				tag = "Player2";
+				layer = layerWeapon2;
+			}
+			weapon.tag = tag;
+			weapon.layer = layer;
+		} else if (weapon.name.StartsWith ("Ariete")) {
+			weapon.transform.position = currentPointJoin.transform.position + new Vector3 (0f, 0f, -0.3f);
 			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
+			String tag;
+			int layer;
+			if (this.bot.name == "Bot 1") {
+				tag = "Player1";
+				layer = layerWeapon1;
+			} else {
+				tag = "Player2";
+				layer = layerWeapon2;
+			}
+			weapon.tag = tag;
+			weapon.layer = layer;
+		} else if (weapon.name.StartsWith ("Bola Demoledora")) {
+			weapon.transform.position = currentPointJoin.transform.position;
+			joinPointConfigurable.connectedBody = weapon.transform.Find("Conexion1").gameObject.GetComponent<Rigidbody> ();
+			joinPointConfigurable.xMotion = ConfigurableJointMotion.Locked;
+			joinPointConfigurable.yMotion = ConfigurableJointMotion.Locked;
+			joinPointConfigurable.zMotion = ConfigurableJointMotion.Locked;
+			joinPointConfigurable.angularXMotion = ConfigurableJointMotion.Free;
+			joinPointConfigurable.angularYMotion = ConfigurableJointMotion.Free;
+			joinPointConfigurable.angularZMotion = ConfigurableJointMotion.Free;
+			String tag;
+			int layer;
+			if (this.bot.name == "Bot 1") {
+				tag = "Player1";
+				layer = layerWeapon1;
+			} else {
+				tag = "Player2";
+				layer = layerWeapon2;
+			}
+			weapon.tag = tag;
+			weapon.layer = layer;
+			GameObject go = weapon.transform.Find ("Conexion1").gameObject;
+			go.tag = tag;
+			go.layer = layer;
+			go = weapon.transform.Find("Conexion2").gameObject;
+			go.tag = tag;
+			go.layer = layer;
+			go =weapon.transform.Find ("Conexion3").gameObject;
+			go.tag = tag;
+			go.layer = layer;
+			go = weapon.transform.Find ("Conexion4").gameObject;
+			go.tag = tag;
+			go.layer = layer;
+			go = weapon.transform.Find ("Conexion5").gameObject;
+			go.tag = tag;
+			go.layer = layer;
+			go = weapon.transform.Find ("Bola").gameObject;
+			go.tag = tag;
+			go.layer = layer;
 		}
+
 	}
 
 	public void sendToArena() {
