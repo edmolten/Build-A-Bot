@@ -276,9 +276,15 @@ MonoBehaviour:
   maxSteeringAngle: 10
   ejeMotor: Vertical
   ejeRotacion: Horizontal
+  jumpAxis: 
   respawnKey: 0
   yCenter: 0
   initialPosition: {x: 0, y: 0, z: 0}
+  jumpPower: 0
+  YButton: 
+  BButton: 
+  AButton: 
+  XButton: 
 --- !u!54 &398014061
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -383,7 +389,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 399312386}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -654,10 +660,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 641196705}
-  m_LocalRotation: {x: 0.02844034, y: -0.75613105, z: 0.087823175, w: 0.6478766}
-  m_LocalPosition: {x: 3.3000827, y: 0.03999636, z: -0.44005275}
+  m_LocalRotation: {x: -0.0025897555, y: -0.055237137, z: -0.03066736, w: 0.99799883}
+  m_LocalPosition: {x: -0.040004138, y: 0.67999995, z: -2.270056}
   m_LocalScale: {x: 1, y: 1, z: 0.89244175}
-  m_LocalEulerAnglesHint: {x: 9.713, y: -98.241005, z: 4.0010004}
+  m_LocalEulerAnglesHint: {x: -0.485, y: -6.1450005, z: -3.3920002}
   m_Children: []
   m_Father: {fileID: 1797034434}
   m_RootOrder: 4
@@ -688,7 +694,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 641196705}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -821,9 +827,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010295052040, guid: 5923f72396932d745a5664fc419ae050, type: 2}
-      propertyPath: m_TagString
-      value: Player2
+    - target: {fileID: 114000011624962064, guid: 5923f72396932d745a5664fc419ae050,
+        type: 2}
+      propertyPath: pushButton
+      value: p
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5923f72396932d745a5664fc419ae050, type: 2}
@@ -1199,7 +1206,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1403159820}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d491493392bd534f9e1e1f2d21a465a, type: 3}
   m_Name: 
@@ -1213,9 +1220,15 @@ MonoBehaviour:
   maxSteeringAngle: 10
   ejeMotor: WS
   ejeRotacion: AD
+  jumpAxis: 
   respawnKey: 0
   yCenter: 0
   initialPosition: {x: 0, y: 0, z: 0}
+  jumpPower: 0
+  YButton: 
+  BButton: 
+  AButton: 
+  XButton: 
 --- !u!54 &1403159822
 Rigidbody:
   m_ObjectHideFlags: 0

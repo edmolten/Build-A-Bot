@@ -26,7 +26,10 @@ public class MovimientoBolaCañon : MonoBehaviour {
 		if ((thisTag == "Player1" && otherTag == "Player2") || (thisTag == "Player2" && otherTag == "Player1")) {
 			GameObject cuerpo = this.transform.parent.transform.gameObject;
 			collRigidBody.AddForce (cuerpo.transform.right * fuerza, ForceMode.VelocityChange);
-			Destroy (this);
+
+		}
+		if (thisTag != otherTag) {
+			Destroy (this.gameObject);
 		}
 	}
 }

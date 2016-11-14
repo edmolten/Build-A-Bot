@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour {
 	void Start () {
 		time1 = GameObject.Find ("Time 1").GetComponent<Text> ();
 		time2 = GameObject.Find ("Time 2").GetComponent<Text>();
-		currentTime = 60f ;
+		currentTime = 60f * 4 ;
 	}
 
 	void Update () {
@@ -41,19 +41,19 @@ public class Timer : MonoBehaviour {
 				Score scoreScript2 = bot2.GetComponent<Score> ();
 				if (scoreScript1.count > scoreScript2.count) {
 					Text t = (Text)GameObject.Find ("Match Result 1").GetComponent<Text> ();
-					t.text = "You Win!";
+					t.text = "Y o u  W i n !";
 					t = (Text)GameObject.Find ("Match Result 2").GetComponent<Text> ();
-					t.text = "You Lose!";
+					t.text = "Y o u  L o s e !";
 				} else if (scoreScript1.count < scoreScript2.count) {
 					Text t = (Text)GameObject.Find ("Match Result 2").GetComponent<Text> ();
-					t.text = "You Win!";
+					t.text = "Y o u   W i n !";
 					t = (Text)GameObject.Find ("Match Result 1").GetComponent<Text> ();
-					t.text = "You Lose!";
+					t.text = "Y o u  L o s e !";
 				} else {
 					Text t = (Text)GameObject.Find ("Match Result 2").GetComponent<Text> ();
-					t.text = "Draw!";
+					t.text = "D r a w !";
 					t = (Text)GameObject.Find ("Match Result 1").GetComponent<Text> ();
-					t.text = "Draw!";
+					t.text = "D r a w !";
 				}
 				started = false;
 			}

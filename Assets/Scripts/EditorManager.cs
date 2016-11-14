@@ -96,7 +96,6 @@ public class EditorManager : MonoBehaviour {
 
 		if (weapon.name.StartsWith ("Sierra")) {
 			weapon.transform.localPosition = new Vector3 (0f, 0f, 0.3f);
-			//weapon.transform.position = transform.InverseTransformPoint(pointJoin.transform.position) + new Vector3(0f,0f,0.3f);
 			joinPointConfigurable.connectedBody = weapon.GetComponent<Rigidbody> ();
 			joinPointConfigurable.anchor = currentPointJoin.transform.localPosition + weapon.transform.localPosition;
 
@@ -119,6 +118,7 @@ public class EditorManager : MonoBehaviour {
 			weapon.layer = layer;
 		} else if (weapon.name.StartsWith ("Ariete")) {
 			weapon.transform.position = currentPointJoin.transform.position + new Vector3 (0f, 0f, -0.3f);
+			weapon.transform.Rotate(0, currentPointJoin.transform.rotation.y, 0);
 			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
 			String tag;
 			int layer;
@@ -133,6 +133,7 @@ public class EditorManager : MonoBehaviour {
 			weapon.layer = layer;
 		} else if (weapon.name.StartsWith ("Bola Demoledora")) {
 			weapon.transform.position = currentPointJoin.transform.position;
+			weapon.transform.Rotate(0, currentPointJoin.transform.rotation.y + 180, 0);
 			joinPointConfigurable.connectedBody = weapon.transform.Find ("Conexion1").gameObject.GetComponent<Rigidbody> ();
 			joinPointConfigurable.xMotion = ConfigurableJointMotion.Locked;
 			joinPointConfigurable.yMotion = ConfigurableJointMotion.Locked;
@@ -171,20 +172,31 @@ public class EditorManager : MonoBehaviour {
 			go.layer = layer;
 		} else if (weapon.name.StartsWith ("Cañon")) {
 			weapon.transform.position = currentPointJoin.transform.position + new Vector3 (0f, 0f, -0.3f);
+			weapon.transform.Rotate(0, currentPointJoin.transform.rotation.y, 0);
 			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
 			String tag;
 			int layer;
 			if (this.bot.name == "Bot 1") {
 				tag = "Player1";
+
+				foreach (Transform child in weapon.transform){
+					child.gameObject.tag = tag;
+				}
 				layer = layerWeapon1;
 			} else {
 				tag = "Player2";
 				layer = layerWeapon2;
+				foreach (Transform child in weapon.transform){
+					child.gameObject.tag = tag;
+				}
 			}
 			weapon.tag = tag;
 			weapon.layer = layer;
+
 		} else if (weapon.name.StartsWith ("Pala")) {
-			weapon.transform.position = currentPointJoin.transform.position + new Vector3 (0f, 0f, -0.3f);
+			weapon.transform.position = currentPointJoin.transform.position;
+			//weaon.transform.localPosition += new Vector3(,,-0,)
+			weapon.transform.Rotate(0, currentPointJoin.transform.rotation.y, 0);
 			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
 			String tag;
 			int layer;
@@ -232,6 +244,11 @@ public class EditorManager : MonoBehaviour {
 		//Disable UI components
 		Transform backGround = canvas.gameObject.transform.Find("BgEditor");
 		Transform containerMenu = canvas.gameObject.transform.Find("Container");
+		for (int i = 0; i < 4; i++) {
+			GameObject currentPointJoin = pointsJoin.transform.GetChild (i).gameObject;
+			currentPointJoin.GetComponent<MeshRenderer> ().enabled = false;
+
+		}
 
 		Destroy (containerMenu.gameObject);
 		Destroy (backGround.gameObject);
