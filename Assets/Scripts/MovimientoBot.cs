@@ -34,6 +34,7 @@ public class MovimientoBot : MonoBehaviour {
 		//para evitar volcaminetos weones, se baja el centro de gravedad
 		GetComponent<Rigidbody>().centerOfMass = new Vector3(0,yCenter,0);
 		initialPosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+
 	}
 
 	// finds the corresponding visual wheel

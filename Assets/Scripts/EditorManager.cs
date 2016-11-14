@@ -42,7 +42,15 @@ public class EditorManager : MonoBehaviour {
 		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
 
 		nextPointJoin ();
+
 		//attachWeapon ();
+
+		//score y time desaparece
+		GameObject.Find ("Score 1").transform.localScale = Vector3.zero;
+		GameObject.Find ("Score 2").transform.localScale = Vector3.zero;
+		GameObject.Find ("Time 1").transform.localScale = Vector3.zero;
+		GameObject.Find ("Time 2").transform.localScale = Vector3.zero;
+
 	}
 
 	//Select the next point to join
@@ -54,11 +62,6 @@ public class EditorManager : MonoBehaviour {
 		indexCurrentPoint = (indexCurrentPoint + 1) % pointsJoin.transform.childCount;
 		currentPointJoin = pointsJoin.transform.GetChild (indexCurrentPoint).gameObject;
 		currentPointJoin.GetComponent<MeshRenderer> ().enabled = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void attachWeapon(){
@@ -96,6 +99,20 @@ public class EditorManager : MonoBehaviour {
 	}
 
 	public void sendToArena() {
+		//score aparece
+		if (this.bot.name == "Bot 1") {
+			GameObject.Find ("Score 1").transform.localScale = Vector3.one;
+			GameObject.Find ("Time 1").transform.localScale = Vector3.one;
+		} else {
+			GameObject.Find ("Score 2").transform.localScale = Vector3.one;
+			GameObject.Find ("Time 2").transform.localScale = Vector3.one;
+		}
+
+		//startTimer
+
+		Timer timer = GameObject.Find ("TimerObject");
+
+
 		//set back the normal properties.
 		bot.transform.position = initPosCar;
 		rbBot.useGravity = true;
