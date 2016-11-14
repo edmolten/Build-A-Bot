@@ -36,7 +36,7 @@ public class AtaqueAriete : MonoBehaviour {
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
 		string thisTag = this.tag;
 		string otherTag = coll.gameObject.tag;
-		if(isPushing && pushing >= 0 && (thisTag == "Player1" && otherTag == "Player2") || (thisTag == "Player2" && otherTag == "Player1")){
+		if(isPushing && pushing >= 0 && ((thisTag == "Player1" && otherTag == "Player2") || (thisTag == "Player2" && otherTag == "Player1"))){
 			AudioSource audio = GetComponent<AudioSource> ();
 			audio.Play ();
 			collRigidBody.AddForce (- this.gameObject.transform.up * fuerza, ForceMode.VelocityChange);
