@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour {
 	void Start () {
 		time1 = GameObject.Find ("Time 1").GetComponent<Text> ();
 		time2 = GameObject.Find ("Time 2").GetComponent<Text>();
-		currentTime = 10f ;
+		currentTime = 60f ;
 	}
 
 	void Update () {
