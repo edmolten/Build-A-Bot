@@ -49,12 +49,6 @@ public class EditorManager : MonoBehaviour {
 
 		//attachWeapon ();
 
-		//score y time desaparece
-		GameObject.Find ("Score 1").transform.localScale = Vector3.zero;
-		GameObject.Find ("Score 2").transform.localScale = Vector3.zero;
-		GameObject.Find ("Time 1").transform.localScale = Vector3.zero;
-		GameObject.Find ("Time 2").transform.localScale = Vector3.zero;
-
 	}
 
 	void Update(){
@@ -208,16 +202,6 @@ public class EditorManager : MonoBehaviour {
 			player2Ready = true;
 		}
 
-		if (player1Ready && player2Ready) {
-			//startTimer
-			Timer timer = GameObject.Find ("TimerObject").GetComponent<Timer> ();
-			GameObject.Find ("Score 2").transform.localScale = new Vector3 (1.5f, 1.5f, 1.5f);
-			GameObject.Find ("Time 2").transform.localScale =  new Vector3(1.5f,1.5f,1.5f);
-			GameObject.Find ("Score 1").transform.localScale =  new Vector3(1.5f,1.5f,1.5f);
-			GameObject.Find ("Time 1").transform.localScale =  new Vector3(1.5f,1.5f,1.5f);
-			timer.started = true;
-		}
-
 		//set back the normal properties.
 		bot.transform.position = initPosCar;
 		rbBot.useGravity = true;
@@ -230,12 +214,19 @@ public class EditorManager : MonoBehaviour {
 		bot.GetComponent<MovimientoBot> ().initialPosition = initPosCar;
 
 		//Disable UI components
-		Transform backGround = canvas.gameObject.transform.Find("BgEditor");
-		Transform containerMenu = canvas.gameObject.transform.Find("Container");
+		Transform menuPricipal = canvas.gameObject.transform.Find("MenuPrincipal");
+		Transform menuGame = canvas.gameObject.transform.Find("MenuGame");
 
-		Destroy (containerMenu.gameObject);
-		Destroy (backGround.gameObject);
-		Destroy (this);
+		menuPricipal.gameObject.SetActive (false);
+		menuGame.gameObject.SetActive (true);
+
+		//Destroy (this);
+
+		if (player1Ready && player2Ready) {
+			//startTimer
+			Timer timer = GameObject.Find ("TimerObject").GetComponent<Timer> ();
+			timer.started = true;
+		}
 
 	}
 }
