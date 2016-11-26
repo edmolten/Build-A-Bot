@@ -219,13 +219,14 @@ public class EditorManager : MonoBehaviour {
 
 		menuPricipal.gameObject.SetActive (false);
 		menuGame.gameObject.SetActive (true);
+		canvas.planeDistance = 1;
 
 		//Destroy (this);
 
 		if (player1Ready && player2Ready) {
 			//startTimer
 			Timer timer = GameObject.Find ("TimerObject").GetComponent<Timer> ();
-			timer.started = true;
+			timer.setUpTimer ();
 		}
 
 	}
