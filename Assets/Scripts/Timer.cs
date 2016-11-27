@@ -8,7 +8,11 @@ public class Timer : MonoBehaviour {
 	Text time1; 
 	Text time2;
 	float currentTime;
+
 	public bool started = false;
+	public Canvas canvasUI1 = null;
+	public Canvas canvasUI2 = null;
+
 
 	void Start () {
 		
@@ -47,6 +51,12 @@ public class Timer : MonoBehaviour {
 		currentTime -= Time.deltaTime;
 		if (currentTime <= 0) {
 			GameObject bot1 = GameObject.Find ("Bot 1");
+			GameObject bot2 = GameObject.Find ("Bot 2");
+
+
+
+			/*
+			GameObject bot1 = GameObject.Find ("Bot 1");
 			Score scoreScript1 = bot1.GetComponent<Score> ();
 			GameObject bot2 = GameObject.Find ("Bot 2");
 			Score scoreScript2 = bot2.GetComponent<Score> ();
@@ -65,7 +75,7 @@ public class Timer : MonoBehaviour {
 				t.text = "Draw!";
 				t = (Text)GameObject.Find ("Match Result 1").GetComponent<Text> ();
 				t.text = "Draw!";
-			}
+			}*/
 			started = false;
 		}
 	}
