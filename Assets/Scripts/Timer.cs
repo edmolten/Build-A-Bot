@@ -72,8 +72,8 @@ public class Timer : MonoBehaviour {
             rbBot2.useGravity = false;
             rbBot2.isKinematic = true;
 
-            bot1.transform.position = positionMenuFinal1;
-            bot2.transform.position = positionMenuFinal2;
+            //bot1.transform.position = positionMenuFinal1;
+            //bot2.transform.position = positionMenuFinal2;
 
             cameraBot1.GetComponent<SmoothFollow>().enabled = false;
             cameraBot1.transform.position = new Vector3(positionMenuFinal1.x, positionMenuFinal1.y, distanceCamera);
