@@ -19,7 +19,6 @@ public class MovimientoBolaCañon : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision coll){
-		Debug.Log (coll.gameObject.name);
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
 		string thisTag = this.tag;
 		string otherTag = coll.gameObject.tag;

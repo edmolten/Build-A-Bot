@@ -9,12 +9,42 @@ public class AtaqueAriete : MonoBehaviour {
 	private bool isPushing;
 	private Rigidbody collRigidBody;
 	private Animation pushAnimation;
+	private int layerWeapon1 = 12;
+	private int layerWeapon2 = 13;
 
 	// Use this for initialization
 	void Start () {
+		
 		isPushing = false;
 		pushing = 1F / 12F;
 		pushAnimation = this.gameObject.GetComponent<Animation> ();
+
+		this.transform.name = "Ariete_" + this.transform.parent.name;
+		this.transform.localPosition = new Vector3 (0f, 0f, 0f);
+
+		Debug.Log (this.transform.parent.name + " esta rotado en " + this.transform.parent.localEulerAngles.y);
+		if (this.transform.parent.name == "Atras") {
+			this.transform.localRotation = Quaternion.AngleAxis (this.transform.parent.localEulerAngles.y/2, Vector3.right);
+		} else if (this.transform.parent.name == "Frente" ) {
+			this.transform.localRotation = Quaternion.AngleAxis (-90, Vector3.right);
+		} else {
+			this.transform.localRotation = Quaternion.AngleAxis (this.transform.parent.localEulerAngles.y, Vector3.right);
+		}
+
+		FixedJoint jointPoint = this.transform.parent.gameObject.AddComponent<FixedJoint> ();
+		jointPoint.connectedBody = this.gameObject.GetComponent<Rigidbody> ();
+
+		string tag;
+		int layer;
+		if (this.transform.parent.parent.parent.name == "Bot 1") {
+			tag = "Player1";
+			layer = layerWeapon1;
+		} else {
+			tag = "Player2";
+			layer = layerWeapon2;
+		}
+		this.tag = tag;
+		this.gameObject.layer = layer;
 	}
 
 	// Update is called once per frame
@@ -43,6 +73,11 @@ public class AtaqueAriete : MonoBehaviour {
 			pushing = 1F / 12F;
 			isPushing = false;
 		}
+	}
+
+	void OnDestroy(){
+		GameObject parent = this.transform.parent.gameObject;
+		Destroy (parent.GetComponent<FixedJoint> ());
 	}
 
 }
