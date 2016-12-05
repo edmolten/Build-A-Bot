@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.69560003, g: 0.71036094, b: 0.67275083, a: 1}
+  m_IndirectSpecularColor: {r: 0.6955996, g: 0.7103602, b: 0.67275053, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -8275,6 +8275,8 @@ MonoBehaviour:
   started: 0
   canvasUI1: {fileID: 0}
   canvasUI2: {fileID: 0}
+  cameraBot1: {fileID: 0}
+  cameraBot2: {fileID: 0}
 --- !u!4 &1779552186
 Transform:
   m_ObjectHideFlags: 0

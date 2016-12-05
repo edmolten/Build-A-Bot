@@ -52,15 +52,17 @@ public class EditorManager : MonoBehaviour {
 	}
 
 	void Update(){
-	/*	if (this.bot.name == "Bot 1") {
-			if (Input.GetButtonDown ("R1")) {
+		if (this.bot.name == "Bot 1") {
+			if (Input.GetButtonDown ("R11")) {
 				nextPointJoin ();
-			} else if (Input.GetButtonDown ("R2")) {
+			} else if (Input.GetButtonDown ("R21")) {
 				attachWeapon ();
 			} else if (Input.GetButtonDown ("start")) {
 				sendToArena ();
 			}
-		}*/
+		} else {
+
+		}
 
 	}
 	//Select the next point to join
