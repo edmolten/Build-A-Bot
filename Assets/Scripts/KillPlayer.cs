@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor.VersionControl;
 using System.Security.Cryptography;
-using UnityEditor;
 using UnityEngine.UI;
 
 public class KillPlayer : MonoBehaviour {
