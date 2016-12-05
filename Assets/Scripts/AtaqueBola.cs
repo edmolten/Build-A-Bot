@@ -17,9 +17,42 @@ public class AtaqueBola : MonoBehaviour {
 	Vector3 parentPosition;
 	Quaternion parentRotation;
 
+	private int layerWeapon1 = 12;
+	private int layerWeapon2 = 13;
+
 	void Start () {
 		thisRigidBody = this.gameObject.GetComponent<Rigidbody> ();
 		stabilizer = GetComponentInParent<Stabilizer> ();
+
+		this.transform.parent.localPosition = new Vector3(0f,0.75f,-2.5f);
+		this.transform.parent.GetChild(1).name += "_" + this.transform.parent.parent.name;
+		this.transform.parent.name = "Bola Demoledora_" + this.transform.parent.parent.name;
+
+		this.transform.parent.Rotate(0, this.transform.parent.parent.eulerAngles.y + 180, 0);
+
+		FixedJoint joinPoint = this.transform.parent.parent.gameObject.AddComponent<FixedJoint> ();
+
+		joinPoint.connectedBody = this.transform.parent.GetChild(1).gameObject.GetComponent<Rigidbody> ();
+
+		string tag;
+		int layer;
+
+		if (this.transform.parent.parent.parent.parent.name == "Bot 1") {
+			tag = "Player1";
+			layer = layerWeapon1;
+		} else {
+			tag = "Player2";
+			layer = layerWeapon2;
+		}
+		this.tag = tag;
+		this.gameObject.layer = layer;
+		foreach (Transform child in this.transform.parent){
+			child.tag = tag;
+			child.gameObject.layer = layer;
+		}
+
+		this.transform.parent.tag = tag;
+		this.transform.parent.gameObject.layer = layer;
 	}
 
 	void Update(){
@@ -50,5 +83,10 @@ public class AtaqueBola : MonoBehaviour {
 		} else {
 			audio.volume = ((1 - minVol) / estimatedMaxVelMag) * velMag + minVol;
 		}
+	}
+
+	void OnDestroy(){
+		GameObject parent = this.transform.parent.parent.gameObject;
+		Destroy (parent.GetComponent<FixedJoint> ());
 	}
 }

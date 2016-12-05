@@ -194,4 +194,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frecuenciaRotacion: 400
-  fuerza: 4
+  fuerza: 20

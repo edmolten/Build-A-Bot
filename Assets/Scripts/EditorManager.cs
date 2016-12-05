@@ -17,7 +17,7 @@ public class EditorManager : MonoBehaviour {
 	private Rigidbody rbBot; // reference to the rBody of the bot.
 	private FixedJoint joinPointFixed;
 	private ConfigurableJoint joinPointConfigurable;
-	private int currentWeapon = 0;
+	private int currentWeapon = 1;
 
 	//Selection of joint point
 	private int indexCurrentPoint = 0;
@@ -77,123 +77,14 @@ public class EditorManager : MonoBehaviour {
 	}
 
 	public void attachWeapon(){
-		currentWeapon = (currentWeapon + 1) % weapons.Length;
-
-		GameObject weapon = Instantiate (weapons [currentWeapon]);
 
 		if (currentPointJoin.transform.childCount == 1) {
 			Destroy (currentPointJoin.transform.GetChild(0).gameObject);
 		}
-			
-		weapon.transform.parent = currentPointJoin.transform;
-		weapon.transform.localRotation = weapon.transform.rotation;
-		joinPointConfigurable = currentPointJoin.GetComponent<ConfigurableJoint> ();
-		joinPointFixed = currentPointJoin.GetComponent<FixedJoint> ();
 
-		if (weapon.name.StartsWith ("Sierra")) {
-			weapon.transform.localPosition = new Vector3 (0f, 0f, 0.3f);
-			//weapon.transform.position = transform.InverseTransformPoint(pointJoin.transform.position) + new Vector3(0f,0f,0.3f);
-			joinPointConfigurable.connectedBody = weapon.GetComponent<Rigidbody> ();
-			joinPointConfigurable.anchor = currentPointJoin.transform.localPosition + weapon.transform.localPosition;
-
-			joinPointConfigurable.xMotion = ConfigurableJointMotion.Locked;
-			joinPointConfigurable.yMotion = ConfigurableJointMotion.Locked;
-			joinPointConfigurable.zMotion = ConfigurableJointMotion.Locked;
-			joinPointConfigurable.angularXMotion = ConfigurableJointMotion.Locked;
-			joinPointConfigurable.angularYMotion = ConfigurableJointMotion.Free;
-			joinPointConfigurable.angularZMotion = ConfigurableJointMotion.Locked;
-			String tag;
-			int layer;
-			if (this.bot.name == "Bot 1") {
-				tag = "Player1";
-				layer = layerWeapon1;
-			} else {
-				tag = "Player2";
-				layer = layerWeapon2;
-			}
-			weapon.tag = tag;
-			weapon.layer = layer;
-		} else if (weapon.name.StartsWith ("Ariete")) {
-			weapon.transform.position = currentPointJoin.transform.position + new Vector3 (0f, 0f, -0.3f);
-			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
-			String tag;
-			int layer;
-			if (this.bot.name == "Bot 1") {
-				tag = "Player1";
-				layer = layerWeapon1;
-			} else {
-				tag = "Player2";
-				layer = layerWeapon2;
-			}
-			weapon.tag = tag;
-			weapon.layer = layer;
-		} else if (weapon.name.StartsWith ("Bola Demoledora")) {
-			weapon.transform.position = currentPointJoin.transform.position;
-			joinPointConfigurable.connectedBody = weapon.transform.Find ("Conexion1").gameObject.GetComponent<Rigidbody> ();
-			joinPointConfigurable.xMotion = ConfigurableJointMotion.Locked;
-			joinPointConfigurable.yMotion = ConfigurableJointMotion.Locked;
-			joinPointConfigurable.zMotion = ConfigurableJointMotion.Locked;
-			joinPointConfigurable.angularXMotion = ConfigurableJointMotion.Free;
-			joinPointConfigurable.angularYMotion = ConfigurableJointMotion.Free;
-			joinPointConfigurable.angularZMotion = ConfigurableJointMotion.Free;
-			String tag;
-			int layer;
-			if (this.bot.name == "Bot 1") {
-				tag = "Player1";
-				layer = layerWeapon1;
-			} else {
-				tag = "Player2";
-				layer = layerWeapon2;
-			}
-			weapon.tag = tag;
-			weapon.layer = layer;
-			GameObject go = weapon.transform.Find ("Conexion1").gameObject;
-			go.tag = tag;
-			go.layer = layer;
-			go = weapon.transform.Find ("Conexion2").gameObject;
-			go.tag = tag;
-			go.layer = layer;
-			go = weapon.transform.Find ("Conexion3").gameObject;
-			go.tag = tag;
-			go.layer = layer;
-			go = weapon.transform.Find ("Conexion4").gameObject;
-			go.tag = tag;
-			go.layer = layer;
-			go = weapon.transform.Find ("Conexion5").gameObject;
-			go.tag = tag;
-			go.layer = layer;
-			go = weapon.transform.Find ("Bola").gameObject;
-			go.tag = tag;
-			go.layer = layer;
-		} else if (weapon.name.StartsWith ("Cañon")) {
-			weapon.transform.position = currentPointJoin.transform.position + new Vector3 (0f, 0f, -0.3f);
-			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
-			String tag;
-			int layer;
-			if (this.bot.name == "Bot 1") {
-				tag = "Player1";
-				layer = layerWeapon1;
-			} else {
-				tag = "Player2";
-				layer = layerWeapon2;
-			}
-			weapon.tag = tag;
-			weapon.layer = layer;
-		} else if (weapon.name.StartsWith ("Pala")) {
-			weapon.transform.position = currentPointJoin.transform.position + new Vector3 (0f, 0f, -0.3f);
-			joinPointFixed.connectedBody = weapon.GetComponent<Rigidbody> ();
-			String tag;
-			int layer;
-			if (this.bot.name == "Bot 1") {
-				tag = "Player1";
-				layer = layerWeapon1;
-			} else {
-				tag = "Player2";
-				layer = layerWeapon2;
-			}
-			weapon.tag = tag;
-			weapon.layer = layer;
-		}
+		GameObject weapon = Instantiate (weapons [currentWeapon], currentPointJoin.transform) as GameObject;
+		
+		currentWeapon = (currentWeapon + 1) % weapons.Length;
 	}
 
 	public void sendToArena() {

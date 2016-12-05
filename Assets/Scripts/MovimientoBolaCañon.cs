@@ -19,14 +19,16 @@ public class MovimientoBolaCañon : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision coll){
-		Debug.Log (coll.gameObject.name);
 		collRigidBody = coll.gameObject.GetComponent<Rigidbody> ();
 		string thisTag = this.tag;
 		string otherTag = coll.gameObject.tag;
 		if ((thisTag == "Player1" && otherTag == "Player2") || (thisTag == "Player2" && otherTag == "Player1")) {
 			GameObject cuerpo = this.transform.parent.transform.gameObject;
 			collRigidBody.AddForce (cuerpo.transform.right * fuerza, ForceMode.VelocityChange);
-			Destroy (this);
+
+		}
+		if (thisTag != otherTag) {
+			Destroy (this.gameObject);
 		}
 	}
 }
