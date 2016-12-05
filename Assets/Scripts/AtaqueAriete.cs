@@ -11,7 +11,7 @@ public class AtaqueAriete : MonoBehaviour {
 	private Animation pushAnimation;
 	private int layerWeapon1 = 12;
 	private int layerWeapon2 = 13;
-
+	public bool attack = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -49,8 +49,9 @@ public class AtaqueAriete : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (pushButton)) {
+		if (attack && !isPushing) {
 			pushAnimation.Play("ramAttack");
+			attack = false;
 			isPushing = true;
 		}
 		if (isPushing) {

@@ -10,6 +10,7 @@ public class AtaqueCañon : MonoBehaviour {
 	private float cooldownTimer;
 	private int layerWeapon1 = 12;
 	private int layerWeapon2 = 13;
+	public bool attack = false;
 
 	// Use this for initialization
 	void Start () {
@@ -50,8 +51,8 @@ public class AtaqueCañon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (pushButton) && isOnCooldown == false) {
-
+		if (attack && isOnCooldown == false) {
+			attack = false;
 			isOnCooldown = true;
 			GameObject bala = Instantiate (Resources.Load("Bola de cañon") as GameObject, new Vector3(0,0,0), Quaternion.identity, this.gameObject.transform)  as GameObject;
 			bala.transform.localPosition = new Vector3 (0.08F, 0.025F, -0.05F);

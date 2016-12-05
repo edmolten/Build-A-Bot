@@ -20,25 +20,19 @@ public class MovimientoBot : MonoBehaviour {
 	public float maxSteeringAngle;
 	public String ejeMotor;
 	public String ejeRotacion;
-	public String jumpAxis;
 	public KeyCode respawnKey;
 	public float yCenter;
 	public Vector3 initialPosition;
 	public int jumpPower;
-	public String YButton;
-	public String BButton;
-	public String AButton;
-	public String XButton;
+	private String playerNumber;
 
 	public void Start(){
-		//para evitar volcaminetos weones, se baja el centro de gravedad
 		GetComponent<Rigidbody>().centerOfMass = new Vector3(0,yCenter,0);
 		initialPosition = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+		this.playerNumber = this.gameObject.name.Split ()[1];
 
 	}
-
-	// finds the corresponding visual wheel
-	// correctly applies the transform
+		
 	public void ApplyLocalPositionToVisuals(WheelCollider collider)
 	{
 		if (collider.transform.childCount == 0) {
@@ -76,7 +70,7 @@ public class MovimientoBot : MonoBehaviour {
 			ApplyLocalPositionToVisuals(axleInfo.leftWheel);
 			ApplyLocalPositionToVisuals(axleInfo.rightWheel);
 		}
-		if (Input.GetButtonDown (jumpAxis)) {
+		if (Input.GetButtonDown ("L1"+playerNumber)) {
 			WheelCollider[]  wheels = GetComponentsInChildren<WheelCollider> ();
 			foreach (WheelCollider wc in wheels) {
 				WheelHit wh = new WheelHit();
