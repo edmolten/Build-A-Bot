@@ -26,6 +26,7 @@ GameObject:
   - 114: {fileID: 114000012589505992}
   - 111: {fileID: 111000013896556844}
   - 82: {fileID: 82000010953845028}
+  - 114: {fileID: 114000010512830980}
   m_Layer: 8
   m_Name: Ariete
   m_TagString: Player1
@@ -187,6 +188,17 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000010512830980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011055209422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc37f03223c1f5640abaa32f82997f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012589505992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuerza: 12
   pushButton: l
+  attack: 0
 --- !u!136 &136000011362484146
 CapsuleCollider:
   m_ObjectHideFlags: 1

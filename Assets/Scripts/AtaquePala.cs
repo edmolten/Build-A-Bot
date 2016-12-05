@@ -12,7 +12,7 @@ public class AtaquePala : MonoBehaviour {
 	private Rigidbody collRigidBody;
 	private int layerWeapon1 = 12;
 	private int layerWeapon2 = 13;
-
+	public bool attack = false;
 	// Use this for initialization
 	void Start () {
 		isAttacking = false;
@@ -53,9 +53,10 @@ public class AtaquePala : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (pushButton)) {
+		if (attack && !isAttacking) {
 			attackAnimation.Play("shovelAttack");
 			isAttacking = true;
+			attack = false;
 		}
 		if (isAttacking) {
 			attackTime -= Time.deltaTime;

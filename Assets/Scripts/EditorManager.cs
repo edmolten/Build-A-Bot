@@ -52,16 +52,27 @@ public class EditorManager : MonoBehaviour {
 	}
 
 	void Update(){
-		if (this.bot.name == "Bot 1") {
-			if (Input.GetButtonDown ("R11")) {
-				nextPointJoin ();
-			} else if (Input.GetButtonDown ("R21")) {
-				attachWeapon ();
-			} else if (Input.GetButtonDown ("start")) {
-				sendToArena ();
-			}
-		} else {
+		//Y -> 0
+		//B -> 1
+		//A -> 2
+		//X -> 3
+		//L1 -> 4
+		//R1 -> 5
+		//L2 -> 6
+		//R2 -> 7
+		//selec ->8
+		//star -> 9
+		//L3 -> 10
+		//R3 -> 11
+		String playerNumber = this.bot.name.Split ()[1];
+		if (Input.GetButtonDown ("R1"+playerNumber)) {
+			nextPointJoin (); 
 
+		} else if (Input.GetButtonDown ("R2"+playerNumber)) {
+			attachWeapon (); 
+
+		} else if (Input.GetButtonDown ("start"+playerNumber)) {
+			sendToArena (); 
 		}
 
 	}
@@ -82,7 +93,7 @@ public class EditorManager : MonoBehaviour {
 			Destroy (currentPointJoin.transform.GetChild(0).gameObject);
 		}
 
-		GameObject weapon = Instantiate (weapons [currentWeapon], currentPointJoin.transform) as GameObject;
+		Instantiate (weapons [currentWeapon], currentPointJoin.transform);
 		
 		currentWeapon = (currentWeapon + 1) % weapons.Length;
 	}
