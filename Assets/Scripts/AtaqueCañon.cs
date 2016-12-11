@@ -52,6 +52,7 @@ public class AtaqueCañon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (attack && isOnCooldown == false) {
+			GetComponent<AudioSource> ().Play();
 			attack = false;
 			isOnCooldown = true;
 			GameObject bala = Instantiate (Resources.Load("Bola de cañon") as GameObject, new Vector3(0,0,0), Quaternion.identity, this.gameObject.transform)  as GameObject;
