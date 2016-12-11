@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6955996, g: 0.7103602, b: 0.67275053, a: 1}
+  m_IndirectSpecularColor: {r: 0.69560003, g: 0.71036094, b: 0.67275083, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -620,6 +620,7 @@ GameObject:
   - 224: {fileID: 127915083}
   - 222: {fileID: 127915085}
   - 114: {fileID: 127915084}
+  - 114: {fileID: 127915086}
   m_Layer: 5
   m_Name: Puntaje2
   m_TagString: Untagged
@@ -687,6 +688,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127915082}
+--- !u!114 &127915086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127915082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382d3d015805a3e4eb8722f5ae113af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 0
+  max: 2000
 --- !u!1 &130827074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,6 +3877,7 @@ GameObject:
   - 224: {fileID: 765926980}
   - 222: {fileID: 765926982}
   - 114: {fileID: 765926981}
+  - 114: {fileID: 765926983}
   m_Layer: 5
   m_Name: Puntaje3
   m_TagString: Untagged
@@ -3930,6 +3945,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 765926979}
+--- !u!114 &765926983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 765926979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382d3d015805a3e4eb8722f5ae113af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 0
+  max: 2000
 --- !u!1 &770156979
 GameObject:
   m_ObjectHideFlags: 0
@@ -5841,6 +5869,7 @@ GameObject:
   - 224: {fileID: 1197538664}
   - 222: {fileID: 1197538666}
   - 114: {fileID: 1197538665}
+  - 114: {fileID: 1197538667}
   m_Layer: 5
   m_Name: Puntaje3
   m_TagString: Untagged
@@ -5908,6 +5937,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1197538663}
+--- !u!114 &1197538667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197538663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382d3d015805a3e4eb8722f5ae113af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 500
+  max: 1000
 --- !u!1 &1197609480
 GameObject:
   m_ObjectHideFlags: 0
@@ -7421,6 +7463,7 @@ GameObject:
   - 224: {fileID: 1399326166}
   - 222: {fileID: 1399326168}
   - 114: {fileID: 1399326167}
+  - 114: {fileID: 1399326169}
   m_Layer: 5
   m_Name: Puntaje2
   m_TagString: Untagged
@@ -7488,6 +7531,19 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1399326165}
+--- !u!114 &1399326169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399326165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382d3d015805a3e4eb8722f5ae113af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 500
+  max: 1000
 --- !u!1 &1496209607
 GameObject:
   m_ObjectHideFlags: 0

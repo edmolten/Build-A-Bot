@@ -104,6 +104,12 @@ public class Timer : MonoBehaviour {
             Text t1 = menuFinalBot1.Find("Container").Find("Status").gameObject.GetComponent<Text>();
             Text t2 = menuFinalBot2.Find("Container").Find("Status").gameObject.GetComponent<Text>();
 
+            Text p1 = menuFinalBot1.Find("Container").Find("Puntaje1").gameObject.GetComponent<Text>();
+            Text p2 = menuFinalBot2.Find("Container").Find("Puntaje1").gameObject.GetComponent<Text>();
+
+            p1.text = scoreScript1.count.ToString();
+            p2.text = scoreScript2.count.ToString();
+
             if (scoreScript1.count > scoreScript2.count) {
 				t1.text = "You Win!";
 				t2.text = "You Lose!";
