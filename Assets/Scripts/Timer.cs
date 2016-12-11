@@ -96,8 +96,11 @@ public class Timer : MonoBehaviour {
             menuGameBot2.gameObject.SetActive(false);
             menuFinalBot2.gameObject.SetActive(true);
 
+            menuFinalBot1.gameObject.transform.Find("Continue").gameObject.SetActive(false);
+            menuFinalBot2.gameObject.transform.Find("Continue").gameObject.SetActive(false);
+
             //Set status result
-			Score scoreScript1 = bot1.GetComponent<Score> ();
+            Score scoreScript1 = bot1.GetComponent<Score> ();
 			Score scoreScript2 = bot2.GetComponent<Score> ();
             
             //Text t1 = (Text) GameObject.Find ("Match Result 1").GetComponent<Text> ();
