@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011872076434}
   - 114: {fileID: 114000010186676434}
+  - 114: {fileID: 114000011787313654}
   m_Layer: 0
   m_Name: "Ca\xF1on"
   m_TagString: Untagged
@@ -440,6 +441,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushButton: o
+  cooldown: 0
+  isOnCooldown: 0
+  attack: 0
+--- !u!114 &114000011787313654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012511162036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa57ff42728e934a95df144d0589aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!138 &138000012362849830
 FixedJoint:
   m_ObjectHideFlags: 1

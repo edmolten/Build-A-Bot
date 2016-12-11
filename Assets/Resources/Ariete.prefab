@@ -26,6 +26,7 @@ GameObject:
   - 114: {fileID: 114000012589505992}
   - 111: {fileID: 111000013896556844}
   - 82: {fileID: 82000010953845028}
+  - 114: {fileID: 114000010512830980}
   m_Layer: 8
   m_Name: Ariete
   m_TagString: Player1
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011055209422}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.4332049}
+  m_LocalPosition: {x: -20.84, y: 0.19, z: -41.07}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
@@ -179,13 +180,25 @@ Animation:
   m_GameObject: {fileID: 1000011055209422}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 05ec457a7c828f44989fe1ecec8c9817, type: 2}
+  m_Animation: {fileID: 7400000, guid: 9cf9364d777b6ec4b89180850e625e5c, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 05ec457a7c828f44989fe1ecec8c9817, type: 2}
+  - {fileID: 0}
+  - {fileID: 7400000, guid: 9cf9364d777b6ec4b89180850e625e5c, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114000010512830980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011055209422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc37f03223c1f5640abaa32f82997f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012589505992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 12
-  pushButton: q
+  pushButton: l
+  attack: 0
 --- !u!136 &136000011362484146
 CapsuleCollider:
   m_ObjectHideFlags: 1
