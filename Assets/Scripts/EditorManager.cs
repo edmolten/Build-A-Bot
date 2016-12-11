@@ -33,14 +33,14 @@ public class EditorManager : MonoBehaviour {
 		rbBot = bot.GetComponent<Rigidbody> ();
 		pointsJoin = bot.transform.Find ("PositionWeapon").gameObject;
 		initPosCar = bot.transform.position;
+		rbBot.useGravity = false;
+		rbBot.isKinematic = true;
+		cameraBot.GetComponent<SmoothFollow> ().enabled = false;
 	}
 
 	public void start(){
 		bot.transform.position = positionEditor;
 		//modify started properties to avoid the bot fall
-		rbBot.useGravity = false;
-		rbBot.isKinematic = true;
-		cameraBot.GetComponent<SmoothFollow> ().enabled = false;
 		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
 		nextPointJoin ();
 		started = true;
