@@ -76,6 +76,8 @@ public class MovimientoBot : MonoBehaviour {
 				WheelHit wh = new WheelHit();
 				if (wc.GetGroundHit(out wh)){
 					GetComponent<Rigidbody> ().AddForce (new Vector3 (0, jumpPower, 0),ForceMode.Impulse);
+					//AudioSource audio = GetComponent<AudioSource> ();
+					//audio.clip = 
 					break;
 				}
 			}

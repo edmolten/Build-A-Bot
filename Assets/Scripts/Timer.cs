@@ -72,8 +72,8 @@ public class Timer : MonoBehaviour {
             rbBot2.useGravity = false;
             rbBot2.isKinematic = true;
 
-            bot1.transform.position = positionMenuFinal1;
-            bot2.transform.position = positionMenuFinal2;
+            //bot1.transform.position = positionMenuFinal1;
+            //bot2.transform.position = positionMenuFinal2;
 
             cameraBot1.GetComponent<SmoothFollow>().enabled = false;
             cameraBot1.transform.position = new Vector3(positionMenuFinal1.x, positionMenuFinal1.y, distanceCamera);
@@ -96,13 +96,22 @@ public class Timer : MonoBehaviour {
             menuGameBot2.gameObject.SetActive(false);
             menuFinalBot2.gameObject.SetActive(true);
 
+            menuFinalBot1.gameObject.transform.Find("Continue").gameObject.SetActive(false);
+            menuFinalBot2.gameObject.transform.Find("Continue").gameObject.SetActive(false);
+
             //Set status result
-			Score scoreScript1 = bot1.GetComponent<Score> ();
+            Score scoreScript1 = bot1.GetComponent<Score> ();
 			Score scoreScript2 = bot2.GetComponent<Score> ();
             
             //Text t1 = (Text) GameObject.Find ("Match Result 1").GetComponent<Text> ();
             Text t1 = menuFinalBot1.Find("Container").Find("Status").gameObject.GetComponent<Text>();
             Text t2 = menuFinalBot2.Find("Container").Find("Status").gameObject.GetComponent<Text>();
+
+            Text p1 = menuFinalBot1.Find("Container").Find("Puntaje1").gameObject.GetComponent<Text>();
+            Text p2 = menuFinalBot2.Find("Container").Find("Puntaje1").gameObject.GetComponent<Text>();
+
+            p1.text = scoreScript1.count.ToString();
+            p2.text = scoreScript2.count.ToString();
 
             if (scoreScript1.count > scoreScript2.count) {
 				t1.text = "You Win!";

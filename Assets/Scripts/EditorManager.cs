@@ -23,7 +23,7 @@ public class EditorManager : MonoBehaviour {
 	private int indexCurrentPoint = 0;
 	private GameObject pointsJoin;
 	private GameObject currentPointJoin = null;
-
+	private bool started = false;
 	static bool player1Ready = false;
 	static bool player2Ready = false;
 
@@ -31,51 +31,48 @@ public class EditorManager : MonoBehaviour {
 	void Start () {
 		bot = this.gameObject;
 		rbBot = bot.GetComponent<Rigidbody> ();
-		//joinPointFixed = bot.GetComponent<FixedJoint> ();
-		//joinPointConfigurable = bot.GetComponent<ConfigurableJoint> ();
 		pointsJoin = bot.transform.Find ("PositionWeapon").gameObject;
-	
 		initPosCar = bot.transform.position;
-		bot.transform.position = positionEditor;
+	}
 
+	public void start(){
+		bot.transform.position = positionEditor;
 		//modify started properties to avoid the bot fall
 		rbBot.useGravity = false;
 		rbBot.isKinematic = true;
-
 		cameraBot.GetComponent<SmoothFollow> ().enabled = false;
 		cameraBot.transform.position = new Vector3(positionEditor.x, positionEditor.y, distanceCamera);
-
 		nextPointJoin ();
-
-		//attachWeapon ();
-
+		started = true;
 	}
 
 	void Update(){
-		//Y -> 0
-		//B -> 1
-		//A -> 2
-		//X -> 3
-		//L1 -> 4
-		//R1 -> 5
-		//L2 -> 6
-		//R2 -> 7
-		//selec ->8
-		//star -> 9
-		//L3 -> 10
-		//R3 -> 11
-		String playerNumber = this.bot.name.Split ()[1];
-		if (Input.GetButtonDown ("R1"+playerNumber)) {
-			nextPointJoin (); 
+		if (started) {
+			//Y -> 0
+			//B -> 1
+			//A -> 2
+			//X -> 3
+			//L1 -> 4
+			//R1 -> 5
+			//L2 -> 6
+			//R2 -> 7
+			//selec ->8
+			//star -> 9
+			//L3 -> 10
+			//R3 -> 11
+			String playerNumber = this.bot.name.Split ()[1];
+			if (Input.GetButtonDown ("R1"+playerNumber)) {
+				nextPointJoin (); 
 
-		} else if (Input.GetButtonDown ("R2"+playerNumber)) {
-			attachWeapon (); 
+			} else if (Input.GetButtonDown ("R2"+playerNumber)) {
+				attachWeapon (); 
 
-		} else if (Input.GetButtonDown ("start"+playerNumber)) {
-			sendToArena (); 
+			} else if (Input.GetButtonDown ("start"+playerNumber)) {
+				sendToArena (); 
+			}
 		}
-
 	}
+
 	//Select the next point to join
 	public void nextPointJoin() {
 		if (currentPointJoin != null) {
