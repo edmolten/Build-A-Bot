@@ -123,13 +123,15 @@ public class EditorManager : MonoBehaviour {
 
 		menuPricipal.gameObject.SetActive (false);
 		menuGame.gameObject.SetActive (true);
-		canvas.planeDistance = 1;
+		canvas.planeDistance = 0.31f;
 
 		if (player1Ready && player2Ready) {
 			//startTimer
 			Timer timer = GameObject.Find ("TimerObject").GetComponent<Timer> ();
 			timer.setUpTimer ();
 		}
+
+		currentPointJoin.GetComponent<MeshRenderer> ().enabled = false;
 
 	}
 }
