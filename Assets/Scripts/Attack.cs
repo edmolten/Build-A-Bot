@@ -32,7 +32,6 @@ public class Attack : MonoBehaviour {
 			Transform weapon = frente.GetChild (0);
 			MakeAttack makeAttackScript = weapon.gameObject.GetComponent<MakeAttack> ();
 			if (makeAttackScript != null) {
-				Debug.Log ("asd");
 				makeAttackScript.attack();
 			}
 		}
