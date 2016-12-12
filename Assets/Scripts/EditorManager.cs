@@ -13,6 +13,7 @@ public class EditorManager : MonoBehaviour {
 	public int layerWeapon2 = 13;
 
 	private Vector3 initPosCar; //save the initial position spawn.
+	private Quaternion initRotCar;
 	private GameObject bot; //reference to the bot owner.
 	private Rigidbody rbBot; // reference to the rBody of the bot.
 	private FixedJoint joinPointFixed;
@@ -33,6 +34,7 @@ public class EditorManager : MonoBehaviour {
 		rbBot = bot.GetComponent<Rigidbody> ();
 		pointsJoin = bot.transform.Find ("PositionWeapon").gameObject;
 		initPosCar = bot.transform.position;
+		initRotCar = bot.transform.rotation;
 	}
 
 	public void start(){
@@ -105,6 +107,7 @@ public class EditorManager : MonoBehaviour {
 
 		//set back the normal properties.
 		bot.transform.position = initPosCar;
+		bot.transform.rotation = initRotCar;
 		rbBot.useGravity = true;
 		rbBot.isKinematic = false;
 

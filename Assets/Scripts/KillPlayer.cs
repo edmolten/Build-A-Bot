@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Security.Cryptography;
 using UnityEngine.UI;
+using System;
 
 public class KillPlayer : MonoBehaviour {
 
@@ -61,6 +62,10 @@ public class KillPlayer : MonoBehaviour {
 		}
 		MovimientoBot script = obj.GetComponent<MovimientoBot> ();
 		obj.transform.position = new Vector3 (script.initialPosition.x, script.initialPosition.y, script.initialPosition.z);
-		obj.transform.rotation = new Quaternion (0, 0, 0, 0);
+		if (obj.name == "Bot 1") {
+			obj.transform.rotation = new Quaternion (0, 0, 0, 0);
+		} else {
+			obj.transform.rotation = new Quaternion (0, 180, 0, 0);
+		}
 	}
 }
