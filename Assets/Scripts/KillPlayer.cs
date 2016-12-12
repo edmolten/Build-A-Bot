@@ -21,10 +21,7 @@ public class KillPlayer : MonoBehaviour {
 				scoreScript = bot.GetComponent<Score> ();
 				scoreScript.count++;
 				if (scoreScript.count == winCount) {
-					Text t = (Text)GameObject.Find ("Match Result 2").GetComponent<Text> ();
-					t.text = "You Win!";
-					t = (Text)GameObject.Find ("Match Result 1").GetComponent<Text> ();
-					t.text = "You Lose!";
+					GameObject.Find ("TimerObject").GetComponent<Timer> ().end();
 				}
 				respawn (col.gameObject);
 			} else if (col.gameObject.name == "Bot 2") {
@@ -32,10 +29,7 @@ public class KillPlayer : MonoBehaviour {
 				scoreScript = bot.GetComponent<Score> ();
 				scoreScript.count++;
 				if (scoreScript.count == winCount) {
-					Text t = (Text)GameObject.Find ("Match Result 2").GetComponent<Text> ();
-					t.text = "You Lose!";
-					t = (Text)GameObject.Find ("Match Result 1").GetComponent<Text> ();
-					t.text = "You Win!";
+					GameObject.Find ("TimerObject").GetComponent<Timer> ().end();
 				}
 				respawn (col.gameObject);
 			}
